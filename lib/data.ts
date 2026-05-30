@@ -1,9 +1,8 @@
 export const NAV_LINKS = ["about", "skills", "experience", "projects", "contact"] as const;
 
-export interface Skill {
-  name: string;
-  pct: number;
+export interface SkillGroup {
   cat: string;
+  skills: string[];
 }
 
 export interface Project {
@@ -15,18 +14,14 @@ export interface Project {
   year: string;
 }
 
-export const SKILLS: Skill[] = [
-  { name: "PHP",          pct: 90, cat: "Language" },
-  { name: "Laravel",      pct: 88, cat: "Backend"  },
-  { name: "PostgreSQL",   pct: 80, cat: "Database" },
-  { name: "MySQL",        pct: 78, cat: "Database" },
-  { name: "NestJS",       pct: 65, cat: "Backend"  },
-  { name: "HTML5 / CSS3", pct: 82, cat: "Frontend" },
-  { name: "Bootstrap",    pct: 80, cat: "Frontend" },
-  { name: "Git / GitLab", pct: 75, cat: "Tools"    },
-  { name: "Go",           pct: 28, cat: "Learning" },
-  { name: "Python",       pct: 28, cat: "Learning" },
+export const SKILL_GROUPS: SkillGroup[] = [
+  { cat: "Backend",           skills: ["PHP", "Laravel", "NestJS"] },
+  { cat: "Database",          skills: ["PostgreSQL", "MySQL"] },
+  { cat: "Frontend",          skills: ["HTML5 / CSS3", "Bootstrap"] },
+  { cat: "Practices & Tools", skills: ["Clean Architecture", "RBAC", "REST API", "DataTables", "Git / GitLab"] },
 ];
+
+export const LEARNING = ["Go", "Python"];
 
 export const PROJECTS: Project[] = [
   {

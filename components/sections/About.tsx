@@ -5,7 +5,6 @@ const INFO = [
   { label: "ORIGIN",   val: "Padang, West Sumatera" },
   { label: "BASE",     val: "Jakarta, Indonesia" },
   { label: "EMAIL",    val: "agilahmadmaulana3@gmail.com" },
-  { label: "PHONE",    val: "+62 895 3066 9953" },
   { label: "GITHUB",   val: "github.com/agilahmad" },
   { label: "LINKEDIN", val: "linkedin.com/in/agilahmad" },
 ];

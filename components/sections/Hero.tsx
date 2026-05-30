@@ -8,7 +8,7 @@ const ROLES = ["PHP Developer", "Laravel Specialist", "Backend Engineer", "Web D
 
 const STATS = [
   { label: "SYNC SYSTEM", val: "ACTIVE",  green: true  },
-  { label: "EXPERIENCE",  val: "6+ MO",   green: false },
+  { label: "EXPERIENCE",  val: "6+ MONTH",   green: false },
   { label: "PROJECTS",    val: "6 BUILT", green: false },
   { label: "CLASS",       val: "BACKEND", green: false },
 ];
@@ -134,7 +134,7 @@ export default function Hero() {
       {/* corner label — wide screen */}
       <div className="hero-corner">
         <div style={{ width: 40, height: 1, background: "var(--border)", marginBottom: ".3rem" }} />
-        <div style={{ fontSize: ".52rem", letterSpacing: ".15em", color: "var(--text-muted)", textTransform: "uppercase" }}>CLASS: BERSERK</div>
+        <div style={{ fontSize: ".52rem", letterSpacing: ".15em", color: "var(--text-muted)", textTransform: "uppercase" }}>CLASS: SPECIALIST</div>
       </div>
 
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 100, background: "linear-gradient(transparent,var(--bg))", pointerEvents: "none" }} />

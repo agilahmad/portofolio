@@ -303,6 +303,19 @@ body::after {
   border-color: var(--green);
   box-shadow: 0 0 16px rgba(57,255,20,.15);
 }
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  gap: 1rem;
+  transition: background .2s;
+}
+.contact-row:hover {
+  background: rgba(123,47,190,.06);
+}
 
 /* ════════════════════════════════════════
    RESPONSIVE SYSTEM
@@ -410,7 +423,10 @@ body::after {
 
 /* ─── RESPONSIVE GRIDS ─── */
 .grid-about    { display: grid; grid-template-columns: 1fr;               gap: 2rem;  }
-.grid-skills   { display: grid; grid-template-columns: 1fr;               gap: 0;     }
+.grid-skills        { display: grid; grid-template-columns: 1fr;     gap: 0;      }
+.grid-skill-groups  { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;   }
+.skill-chip         { font-size: .68rem; letter-spacing: .08em; color: var(--text); background: rgba(123,47,190,.08); border: 1px solid rgba(123,47,190,.25); padding: .25rem .7rem; text-transform: uppercase; }
+.skill-chip-learning{ color: var(--purple-light); background: rgba(157,78,221,.06); border-color: rgba(157,78,221,.3); }
 .grid-exp      { display: grid; grid-template-columns: 1fr;               gap: 2rem;  }
 .grid-projects { display: grid; grid-template-columns: 1fr;               gap: 1.5rem;}
 .grid-contact  { display: grid; grid-template-columns: repeat(2,1fr);     gap: 1rem;  }
@@ -422,7 +438,8 @@ body::after {
   .grid-contact  { grid-template-columns: repeat(4,1fr); }
 }
 @media (min-width: 768px) {
-  .grid-skills   { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .grid-skills        { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .grid-skill-groups  { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 }
 @media (min-width: 900px) {
   .grid-exp      { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
