@@ -1,18 +1,7 @@
-"use client";
-
-import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useTypewriter } from "@/lib/hooks";
-import { useLanguage } from "@/context/LanguageContext";
+import { HeroTypewriter, HeroTagline, HeroStats, HeroCTA } from "./HeroClient";
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
-  const { t } = useLanguage();
-  const h = t.hero;
-  const role = useTypewriter(h.roles);
-
-  useEffect(() => { setMounted(true); }, []);
-
   return (
     <section className="grid-bg" style={{ minHeight: "100vh", paddingTop: 58, position: "relative", display: "flex", alignItems: "center", overflow: "hidden" }}>
       <div style={{ position: "absolute", top: "8%", right: "4%", width: "min(500px,60vw)", height: "min(500px,60vw)", background: "radial-gradient(circle,rgba(123,47,190,.12) 0%,transparent 70%)", pointerEvents: "none" }} />
@@ -21,55 +10,31 @@ export default function Hero() {
       <div className="sc" style={{ padding: "4rem 1.25rem 3rem", width: "100%" }}>
         <div className="hero-layout">
 
-          {/* text */}
+          {/* text — server rendered for LCP */}
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: ".75rem", marginBottom: "2rem", flexWrap: "wrap" }}>
-              <span style={{ fontSize: ".6rem", letterSpacing: ".28em", color: "var(--green)", textTransform: "uppercase" }}>{h.unitLabel}</span>
+              <span style={{ fontSize: ".6rem", letterSpacing: ".28em", color: "var(--green)", textTransform: "uppercase" }}>// UNIT DESIGNATION</span>
               <div style={{ width: 40, height: 1, background: "var(--green)", flexShrink: 0 }} />
               <span style={{ fontSize: ".6rem", letterSpacing: ".1em", color: "var(--text-muted)" }}>JAKARTA, INDONESIA</span>
             </div>
 
+            {/* LCP element — server rendered, no JS needed */}
             <div style={{ marginBottom: "1.75rem", lineHeight: 1 }}>
               <div className="glitch" data-text="AGIL" style={{ fontSize: "clamp(3rem,10vw,7rem)", fontWeight: 900, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--text)" }}>AGIL</div>
               <div style={{ fontSize: "clamp(3rem,10vw,7rem)", fontWeight: 900, letterSpacing: ".04em", textTransform: "uppercase", color: "transparent", WebkitTextStroke: "2px var(--purple-light)" }}>AHMAD</div>
               <div style={{ fontSize: "clamp(2rem,7vw,5rem)", fontWeight: 900, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--green)", textShadow: "0 0 40px rgba(57,255,20,.45)" }}>MAULANA</div>
             </div>
 
+            {/* typewriter — client only */}
             <div style={{ display: "flex", alignItems: "center", gap: ".4rem", marginBottom: "1rem", flexWrap: "wrap" }}>
               <span style={{ fontSize: ".8rem", color: "var(--purple-light)" }}>[ </span>
-              <span style={{ fontSize: "clamp(.85rem,2.5vw,1.05rem)", letterSpacing: ".1em", color: "var(--text-muted)" }}>
-                {mounted ? role : h.roles[0]}<span style={{ color: "var(--green)", animation: "blink 1s infinite" }}>█</span>
-              </span>
+              <HeroTypewriter />
               <span style={{ fontSize: ".8rem", color: "var(--purple-light)" }}> ]</span>
             </div>
 
-            {/* tagline */}
-            <p style={{ fontSize: ".82rem", color: "var(--text-muted)", lineHeight: 1.8, maxWidth: 480, marginBottom: "2.5rem" }}>
-              {h.taglineParts.map((part, i) =>
-                i % 2 === 0
-                  ? <span key={i}>{part}</span>
-                  : <span key={i} style={{ color: "var(--text)" }}>{part}</span>
-              )}
-            </p>
-
-            <div className="hero-stats">
-              {h.stats.map(s => (
-                <div key={s.label} style={{ border: "1px solid var(--border)", padding: ".65rem .9rem", background: "rgba(13,13,26,.85)" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: ".4rem", marginBottom: ".45rem" }}>
-                    <span className={`dot${s.green ? "" : " dot-purple"}`} style={{ width: 5, height: 5 }} />
-                    <span style={{ fontSize: ".5rem", letterSpacing: ".18em", color: "var(--text-muted)", textTransform: "uppercase" }}>{s.label}</span>
-                  </div>
-                  <div style={{ fontSize: ".85rem", fontWeight: 700, letterSpacing: ".1em", ...(s.green ? { color: "var(--green)", textShadow: "0 0 8px var(--green)" } : { color: "var(--text)" }) }}>
-                    {s.val}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="cta-group">
-              <a href="#projects" className="btn btn-outline-green">{h.cta.projects}</a>
-              <a href="#contact"  className="btn btn-outline-purple">{h.cta.contact}</a>
-            </div>
+            <HeroTagline />
+            <HeroStats />
+            <HeroCTA />
           </div>
 
           {/* photo */}
@@ -85,11 +50,11 @@ export default function Hero() {
                 <div className="photo-corner-bl" />
                 <div className="photo-scan" />
                 <div className="photo-overlay" />
-                <div className="photo-label">{h.photoLabel}</div>
+                <div className="photo-label">// BACKEND ENGINEER</div>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: ".5rem", marginTop: ".6rem", justifyContent: "flex-end" }}>
                 <span className="dot" />
-                <span style={{ fontSize: ".5rem", letterSpacing: ".2em", color: "var(--green)", textTransform: "uppercase" }}>{h.statusLabel}</span>
+                <span style={{ fontSize: ".5rem", letterSpacing: ".2em", color: "var(--green)", textTransform: "uppercase" }}>STATUS: ONLINE</span>
               </div>
             </div>
           </div>
@@ -99,7 +64,7 @@ export default function Hero() {
 
       <div className="hero-corner">
         <div style={{ width: 40, height: 1, background: "var(--border)", marginBottom: ".3rem" }} />
-        <div style={{ fontSize: ".52rem", letterSpacing: ".15em", color: "var(--text-muted)", textTransform: "uppercase" }}>{h.classLabel}</div>
+        <div style={{ fontSize: ".52rem", letterSpacing: ".15em", color: "var(--text-muted)", textTransform: "uppercase" }}>CLASS: SPECIALIST</div>
       </div>
 
       <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 100, background: "linear-gradient(transparent,var(--bg))", pointerEvents: "none" }} />
