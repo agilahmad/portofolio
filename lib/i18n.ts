@@ -1,0 +1,347 @@
+export type Lang = "en" | "id";
+
+const en = {
+  nav: { resume: "RESUME" },
+  hero: {
+    unitLabel: "// UNIT DESIGNATION",
+    roles: ["Laravel Backend Developer", "PostgreSQL Specialist", "Gov. Systems Engineer", "Security Platform Builder"],
+    taglineParts: [
+      "Specializing in ",
+      "Laravel & PostgreSQL",
+      " — hands-on experience building ",
+      "cybersecurity incident management",
+      " and ",
+      "inventory systems",
+      " for government institutions.",
+    ],
+    stats: [
+      { label: "SYNC SYSTEM", val: "ACTIVE",   green: true  },
+      { label: "EXPERIENCE",  val: "6+ MONTH", green: false },
+      { label: "PROJECTS",    val: "6 BUILT",  green: false },
+      { label: "CLASS",       val: "BACKEND",  green: false },
+    ],
+    cta: { projects: "> VIEW PROJECTS", contact: "CONTACT ME" },
+    photoLabel: "// BACKEND ENGINEER",
+    statusLabel: "STATUS: ONLINE",
+    classLabel: "CLASS: SPECIALIST",
+  },
+  about: {
+    eyebrow: "// ABOUT ME.",
+    title: "DATA",
+    summaryLabel: "[ SUMMARY ]",
+    bio: [
+      "Fresh graduate in Informatics Engineering with hands-on experience building secure, maintainable web applications. Specialised in Laravel and PostgreSQL, with direct exposure to cybersecurity incident management platforms at a government institution.",
+      "Experienced in structured backend architecture (Controller-Service-Request pattern), role-based access control, and server-side data processing inside security-critical environments. Comfortable working in Git-based team workflows.",
+    ],
+    info: [
+      { label: "NAME",     val: "Agil Ahmad Maulana" },
+      { label: "ORIGIN",   val: "Padang, West Sumatera" },
+      { label: "BASE",     val: "Jakarta, Indonesia" },
+      { label: "EMAIL",    val: "agilahmadmaulana3@gmail.com" },
+      { label: "GITHUB",   val: "github.com/agilahmad" },
+      { label: "LINKEDIN", val: "linkedin.com/in/agilahmad" },
+    ],
+    clearanceLabel: "CLEARANCE",
+    clearanceVal: "BACKEND DEVELOPER",
+    activeLabel: "ACTIVE",
+    photoLabel: "// PILOT DATA",
+  },
+  skills: {
+    eyebrow: "// CAPABILITIES",
+    title: "SKILL",
+    learningLabel: "// Currently Learning",
+  },
+  experience: {
+    eyebrow: "// HISTORY",
+    title: "EXPERIENCE",
+    internship: {
+      period: "NOV 2025 – MAY 2026",
+      badge: "ACTIVE",
+      role: "Programmer Intern",
+      org: "Pusat TIK — Mahkamah Konstitusi RI, Jakarta",
+      items: [
+        "Built CSIRT Ticketing Platform, SecureTrack, asset management & admin portal",
+        "Implemented Controller-Service-Request (CSR) architecture across all modules",
+        "Built RBAC, input validation, and server-side DataTables for multi-role workflows",
+        "Contributed to a data scraping pipeline for cross-system automation",
+        "Collaborated via Git/GitLab in a government security environment",
+      ],
+    },
+    training: {
+      period: "AUG – DEC 2024",
+      badge: "COMPLETED",
+      role: "Web Dev Training",
+      org: "Someah Indonesia — Remote",
+      items: [
+        "Intensive project-based Laravel web development program",
+        "Built online learning platform — auth, courses, content delivery, transactions",
+        "Practiced Git/GitLab collaborative workflow throughout",
+      ],
+    },
+    educationLabel: "[ EDUCATION ]",
+    education: {
+      period: "AUG 2021 – OCT 2025",
+      gpa: "GPA 3.34",
+      degree: "Bachelor of Informatics Engineering",
+      university: "Universitas Putra Indonesia YPTK Padang",
+      thesis: `Thesis: "IT Management for Medicine Inventory at West Sumatera Lung Hospital Using the Reorder Point Method"`,
+    },
+    certificationLabel: "[ CERTIFICATION ]",
+    certification: {
+      name: "Web Dev with PHP Laravel",
+      issuer: "Someah Indonesia",
+      date: "DEC 2024",
+    },
+    stats: [
+      { label: "Projects Built", val: "6+"   },
+      { label: "Technologies",   val: "10+"  },
+      { label: "GPA Score",      val: "3.34" },
+      { label: "Experience",     val: "6mo+" },
+    ],
+  },
+  projects: {
+    eyebrow: "// OPERATIONS",
+    title: "PROJECTS",
+    items: [
+      {
+        name: "CSIRT Ticketing Platform",
+        context: "Cybersecurity incident management system for Mahkamah Konstitusi RI — replacing scattered manual incident reporting.",
+        contributions: [
+          "Architected multi-role RBAC covering analyst, admin, and management access levels",
+          "Built centralised incident queue with server-side DataTables for real-time filtering",
+          "Implemented full audit trail for every incident state change",
+        ],
+      },
+      {
+        name: "SecureTrack",
+        context: "Penetration testing workflow tracker built for a security-critical government environment.",
+        contributions: [
+          "Applied Controller-Service-Request pattern to isolate business logic from HTTP layer",
+          "Structured audit trail for pentest activities, findings, and remediation status",
+          "Designed for strict data-separation requirements in a classified environment",
+        ],
+      },
+      {
+        name: "Medicine Inventory System",
+        context: "Hospital pharmacy stock management — eliminating manual reorder calculations that caused frequent shortages.",
+        contributions: [
+          "Implemented Safety Stock & Reorder Point algorithms for automated procurement alerts",
+          "Built real-time stock dashboard preventing medicine shortages before they occur",
+          "Reduced pharmacist manual calculation workload through automated recommendations",
+        ],
+      },
+      {
+        name: "Asset Management Portal",
+        context: "Internal asset tracking portal for a multi-department organisation with NestJS microservice integration.",
+        contributions: [
+          "Enforced department-level data isolation through multi-role access control",
+          "Integrated NestJS microservice for cross-system asset synchronisation",
+          "Handled large asset catalogues via server-side processing and pagination",
+        ],
+      },
+      {
+        name: "Learning Platform",
+        context: "Full-featured online learning platform built end-to-end during an intensive training programme.",
+        contributions: [
+          "Built authentication, course management, and content delivery from scratch",
+          "Integrated transaction and enrolment flow with role-based content access",
+          "Delivered complete working system within a time-constrained bootcamp environment",
+        ],
+      },
+      {
+        name: "Data Scraping Pipeline",
+        context: "Automated data-sync pipeline between isolated internal government systems at Mahkamah Konstitusi RI.",
+        contributions: [
+          "Eliminated cross-system manual data entry with a scheduled automation pipeline",
+          "Synchronised data reliably between databases with no shared access layer",
+          "Running in production, saving significant staff time on daily data operations",
+        ],
+      },
+    ],
+  },
+  contact: {
+    eyebrow: "// UPLINK",
+    title: "ESTABLISH CONNECTION",
+    subtitle: "Available for new opportunities and collaborations.",
+    cta: "> SEND MESSAGE",
+    orLabel: "OR FIND ME ON",
+  },
+  footer: {
+    role: "// BACKEND ENGINEER",
+    copy: "© 2026 // ALL SYSTEMS ONLINE",
+  },
+};
+
+const id: typeof en = {
+  nav: { resume: "RESUME" },
+  hero: {
+    unitLabel: "// IDENTIFIKASI UNIT",
+    roles: ["Pengembang Backend Laravel", "Spesialis PostgreSQL", "Engineer Sistem Pemerintahan", "Pembangun Platform Keamanan"],
+    taglineParts: [
+      "Spesialisasi dalam ",
+      "Laravel & PostgreSQL",
+      " — pengalaman langsung membangun ",
+      "manajemen insiden keamanan siber",
+      " dan ",
+      "sistem inventaris",
+      " untuk institusi pemerintah.",
+    ],
+    stats: [
+      { label: "STATUS SISTEM", val: "AKTIF",    green: true  },
+      { label: "PENGALAMAN",    val: "6+ BULAN", green: false },
+      { label: "PROYEK",        val: "6 DIBUAT", green: false },
+      { label: "KELAS",         val: "BACKEND",  green: false },
+    ],
+    cta: { projects: "> LIHAT PROYEK", contact: "HUBUNGI SAYA" },
+    photoLabel: "// BACKEND ENGINEER",
+    statusLabel: "STATUS: ONLINE",
+    classLabel: "KELAS: SPESIALIS",
+  },
+  about: {
+    eyebrow: "// TENTANG SAYA",
+    title: "DATA",
+    summaryLabel: "[ RINGKASAN ]",
+    bio: [
+      "Lulusan baru Teknik Informatika dengan pengalaman langsung membangun aplikasi web yang aman dan mudah dipelihara. Spesialisasi dalam Laravel dan PostgreSQL, dengan paparan langsung pada platform manajemen insiden keamanan siber di institusi pemerintah.",
+      "Berpengalaman dalam arsitektur backend terstruktur (pola Controller-Service-Request), kontrol akses berbasis peran, dan pemrosesan data sisi server di lingkungan yang kritis secara keamanan. Nyaman bekerja dalam alur kerja tim berbasis Git.",
+    ],
+    info: [
+      { label: "NAMA",      val: "Agil Ahmad Maulana" },
+      { label: "ASAL",      val: "Padang, Sumatera Barat" },
+      { label: "DOMISILI",  val: "Jakarta, Indonesia" },
+      { label: "EMAIL",     val: "agilahmadmaulana3@gmail.com" },
+      { label: "GITHUB",    val: "github.com/agilahmad" },
+      { label: "LINKEDIN",  val: "linkedin.com/in/agilahmad" },
+    ],
+    clearanceLabel: "KLIRENS",
+    clearanceVal: "BACKEND DEVELOPER",
+    activeLabel: "AKTIF",
+    photoLabel: "// DATA",
+  },
+  skills: {
+    eyebrow: "// KEMAMPUAN",
+    title: "KEAHLIAN",
+    learningLabel: "// Sedang Dipelajari",
+  },
+  experience: {
+    eyebrow: "// RIWAYAT",
+    title: "PENGALAMAN",
+    internship: {
+      period: "NOV 2025 – MEI 2026",
+      badge: "AKTIF",
+      role: "Programmer Magang",
+      org: "Pusat TIK — Mahkamah Konstitusi RI, Jakarta",
+      items: [
+        "Membangun Platform Tiket CSIRT, SecureTrack, portal manajemen aset & admin",
+        "Mengimplementasikan arsitektur Controller-Service-Request (CSR) di seluruh modul",
+        "Membangun RBAC, validasi input, dan DataTables server-side untuk alur kerja multi-peran",
+        "Berkontribusi pada pipeline scraping data untuk otomasi lintas sistem",
+        "Berkolaborasi via Git/GitLab di lingkungan keamanan pemerintah",
+      ],
+    },
+    training: {
+      period: "AGU – DES 2024",
+      badge: "SELESAI",
+      role: "Pelatihan Web Dev",
+      org: "Someah Indonesia — Remote",
+      items: [
+        "Program pengembangan web Laravel berbasis proyek yang intensif",
+        "Membangun platform pembelajaran online — autentikasi, kursus, pengiriman konten, transaksi",
+        "Mempraktikkan alur kerja kolaboratif Git/GitLab sepanjang pelatihan",
+      ],
+    },
+    educationLabel: "[ PENDIDIKAN ]",
+    education: {
+      period: "AGU 2021 – OKT 2025",
+      gpa: "IPK 3.34",
+      degree: "Sarjana Teknik Informatika",
+      university: "Universitas Putra Indonesia YPTK Padang",
+      thesis: `Skripsi: "Manajemen IT untuk Inventaris Obat di RSUP Paru Sumatera Barat Menggunakan Metode Reorder Point"`,
+    },
+    certificationLabel: "[ SERTIFIKASI ]",
+    certification: {
+      name: "Web Dev dengan PHP Laravel",
+      issuer: "Someah Indonesia",
+      date: "DES 2024",
+    },
+    stats: [
+      { label: "Proyek Dibuat", val: "6+"   },
+      { label: "Teknologi",     val: "10+"  },
+      { label: "Nilai IPK",     val: "3.34" },
+      { label: "Pengalaman",    val: "6bl+" },
+    ],
+  },
+  projects: {
+    eyebrow: "// OPERASI",
+    title: "PROJECT",
+    items: [
+      {
+        name: "Platform Tiket CSIRT",
+        context: "Sistem manajemen insiden keamanan siber untuk Mahkamah Konstitusi RI — menggantikan pelaporan insiden manual yang tersebar.",
+        contributions: [
+          "Merancang RBAC multi-peran yang mencakup level analis, admin, dan manajemen",
+          "Membangun antrian insiden terpusat dengan DataTables server-side untuk pemfilteran real-time",
+          "Mengimplementasikan audit trail lengkap untuk setiap perubahan status insiden",
+        ],
+      },
+      {
+        name: "SecureTrack",
+        context: "Pelacak alur kerja penetration testing untuk lingkungan pemerintahan yang kritis secara keamanan.",
+        contributions: [
+          "Menerapkan pola Controller-Service-Request untuk memisahkan business logic dari lapisan HTTP",
+          "Membangun audit trail terstruktur untuk aktivitas pentest, temuan, dan status remediasi",
+          "Dirancang untuk persyaratan pemisahan data yang ketat di lingkungan terklasifikasi",
+        ],
+      },
+      {
+        name: "Sistem Inventaris Obat",
+        context: "Manajemen stok apotek rumah sakit — menghilangkan perhitungan pemesanan ulang manual yang sering menyebabkan kekurangan.",
+        contributions: [
+          "Mengimplementasikan algoritma Safety Stock & Reorder Point untuk peringatan pengadaan otomatis",
+          "Membangun dashboard stok real-time untuk mencegah kekurangan obat sebelum terjadi",
+          "Mengurangi beban perhitungan manual apoteker melalui rekomendasi otomatis",
+        ],
+      },
+      {
+        name: "Portal Manajemen Aset",
+        context: "Portal pelacakan aset internal untuk organisasi multi-departemen dengan integrasi microservice NestJS.",
+        contributions: [
+          "Menerapkan isolasi data tingkat departemen melalui kontrol akses multi-peran",
+          "Mengintegrasikan microservice NestJS untuk sinkronisasi aset lintas sistem",
+          "Menangani katalog aset besar melalui pemrosesan server-side dan pagination",
+        ],
+      },
+      {
+        name: "Platform Pembelajaran",
+        context: "Platform pembelajaran online berfitur lengkap yang dibangun dari awal selama program pelatihan intensif.",
+        contributions: [
+          "Membangun autentikasi, manajemen kursus, dan pengiriman konten dari awal",
+          "Mengintegrasikan alur transaksi dan pendaftaran dengan akses konten berbasis peran",
+          "Menghasilkan sistem yang berfungsi penuh dalam lingkungan bootcamp yang terbatas waktu",
+        ],
+      },
+      {
+        name: "Pipeline Scraping Data",
+        context: "Pipeline sinkronisasi data otomatis antar sistem internal pemerintah yang terisolasi di Mahkamah Konstitusi RI.",
+        contributions: [
+          "Menghilangkan entri data manual lintas sistem dengan pipeline otomasi terjadwal",
+          "Menyinkronkan data secara andal antara database tanpa lapisan akses bersama",
+          "Berjalan di production, menghemat waktu staf yang signifikan pada operasi data harian",
+        ],
+      },
+    ],
+  },
+  contact: {
+    eyebrow: "// UPLINK",
+    title: "BANGUN KONEKSI",
+    subtitle: "Tersedia untuk peluang dan kolaborasi baru.",
+    cta: "> KIRIM PESAN",
+    orLabel: "ATAU TEMUKAN SAYA DI",
+  },
+  footer: {
+    role: "// BACKEND ENGINEER",
+    copy: "© 2026 // SEMUA SISTEM AKTIF",
+  },
+};
+
+export const translations = { en, id };

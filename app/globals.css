@@ -210,6 +210,17 @@ body::after {
   color: var(--bg);
   box-shadow: 0 0 20px rgba(57,255,20,.45);
 }
+.btn-glow-green {
+  border-color: var(--green);
+  color: var(--green);
+  background: transparent;
+}
+.btn-glow-green:hover {
+  background: transparent;
+  color: var(--green);
+  box-shadow: 0 0 18px rgba(57,255,20,.5), inset 0 0 12px rgba(57,255,20,.08);
+  text-shadow: 0 0 8px var(--green);
+}
 .btn-outline-purple {
   border-color: var(--purple);
   color: var(--text);
@@ -313,8 +324,29 @@ body::after {
   gap: 1rem;
   transition: background .2s;
 }
-.contact-row:hover {
-  background: rgba(123,47,190,.06);
+.contact-row:hover { background: rgba(123,47,190,.06); }
+
+.contact-email-link:hover { color: var(--green); }
+
+.social-icon-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .45rem;
+  padding: 1.1rem 2rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: border-color .25s, color .25s, box-shadow .25s;
+  font-size: .55rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+.social-icon-btn:hover {
+  border-color: var(--purple-light);
+  color: var(--text);
+  box-shadow: 0 0 16px rgba(123,47,190,.2);
 }
 
 /* ════════════════════════════════════════
@@ -424,7 +456,7 @@ body::after {
 /* ─── RESPONSIVE GRIDS ─── */
 .grid-about    { display: grid; grid-template-columns: 1fr;               gap: 2rem;  }
 .grid-skills        { display: grid; grid-template-columns: 1fr;     gap: 0;      }
-.grid-skill-groups  { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;   }
+.grid-skill-groups  { display: grid; grid-template-columns: 1fr; gap: 1rem;       }
 .skill-chip         { font-size: .68rem; letter-spacing: .08em; color: var(--text); background: rgba(123,47,190,.08); border: 1px solid rgba(123,47,190,.25); padding: .25rem .7rem; text-transform: uppercase; }
 .skill-chip-learning{ color: var(--purple-light); background: rgba(157,78,221,.06); border-color: rgba(157,78,221,.3); }
 .grid-exp      { display: grid; grid-template-columns: 1fr;               gap: 2rem;  }

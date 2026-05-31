@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -18,7 +19,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistMono.variable} antialiased`} suppressHydrationWarning>{children}</body>
+      <body className={`${geistMono.variable} antialiased`} suppressHydrationWarning>
+        <LanguageProvider>{children}</LanguageProvider>
+      </body>
     </html>
   );
 }

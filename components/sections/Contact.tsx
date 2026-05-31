@@ -1,41 +1,58 @@
-const CONTACTS = [
-  { label: "EMAIL",    val: "agilahmadmaulana3@gmail.com", href: "mailto:agilahmadmaulana3@gmail.com" },
-  { label: "GITHUB",   val: "github.com/agilahmad",        href: "https://github.com/agilahmad"      },
-  { label: "LINKEDIN", val: "linkedin.com/in/agilahmad",   href: "https://linkedin.com/in/agilahmad" },
-];
+"use client";
+
+import { useLanguage } from "@/context/LanguageContext";
+
+const GithubIcon = () => (
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+  </svg>
+);
+
+const LinkedinIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+  </svg>
+);
 
 export default function Contact() {
+  const { t } = useLanguage();
+  const c = t.contact;
+
   return (
     <section id="contact" className="sp">
-      <div style={{ maxWidth: 640, margin: "0 auto", padding: "0 1.25rem" }}>
+      <div style={{ maxWidth: 560, margin: "0 auto", padding: "0 1.25rem", textAlign: "center" }}>
 
-        <p className="section-eyebrow" style={{ display: "flex", justifyContent: "center" }}>// UPLINK</p>
-        <h2 className="section-title" style={{ marginBottom: ".75rem", textAlign: "center" }}>ESTABLISH CONNECTION</h2>
-        <p style={{ color: "var(--text-muted)", fontSize: ".8rem", marginBottom: "2.5rem", letterSpacing: ".05em", textAlign: "center" }}>
-          Available for new opportunities and collaborations.
-        </p>
+        <p className="section-eyebrow" style={{ display: "flex", justifyContent: "center" }}>{c.eyebrow}</p>
+        <h2 className="section-title" style={{ marginBottom: ".75rem" }}>{c.title}</h2>
+        <p style={{ color: "var(--text-muted)", fontSize: ".8rem", marginBottom: "2.5rem", letterSpacing: ".05em" }}>{c.subtitle}</p>
 
-        <div className="panel panel-top-bar">
-          {CONTACTS.map((c, i) => (
-            <a
-              key={c.label}
-              href={c.href}
-              className="contact-row"
-              style={{ borderBottom: i < CONTACTS.length - 1 ? "1px solid rgba(123,47,190,.12)" : "none" }}
-            >
-              <span style={{ fontSize: ".5rem", letterSpacing: ".22em", color: "var(--green)", textTransform: "uppercase", minWidth: 64, flexShrink: 0 }}>
-                {c.label}
-              </span>
-              <span style={{ fontSize: ".78rem", color: "var(--text-muted)", flex: 1, wordBreak: "break-all" }}>
-                {c.val}
-              </span>
-              <span style={{ fontSize: ".7rem", color: "var(--purple-light)", flexShrink: 0 }}>↗</span>
-            </a>
-          ))}
+        <a
+          href="mailto:agilahmadmaulana3@gmail.com"
+          style={{ display: "block", color: "var(--text)", textDecoration: "none", fontSize: "clamp(.8rem,2.5vw,1rem)", letterSpacing: ".06em", marginBottom: "2rem", transition: "color .2s" }}
+          className="contact-email-link"
+        >
+          agilahmadmaulana3@gmail.com
+        </a>
+
+        <a href="mailto:agilahmadmaulana3@gmail.com" className="btn btn-outline-green" style={{ marginBottom: "2.5rem" }}>
+          {c.cta}
+        </a>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2rem" }}>
+          <div style={{ flex: 1, height: 1, background: "rgba(123,47,190,.2)" }} />
+          <span style={{ fontSize: ".5rem", letterSpacing: ".2em", color: "var(--text-muted)" }}>{c.orLabel}</span>
+          <div style={{ flex: 1, height: 1, background: "rgba(123,47,190,.2)" }} />
         </div>
 
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "2rem" }}>
-          <a href="mailto:agilahmadmaulana3@gmail.com" className="btn btn-outline-green">&gt; SEND MESSAGE</a>
+        <div style={{ display: "flex", justifyContent: "center", gap: "1.25rem" }}>
+          <a href="https://github.com/agilahmad" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="GitHub">
+            <GithubIcon />
+            <span>GitHub</span>
+          </a>
+          <a href="https://linkedin.com/in/agilahmad" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="LinkedIn">
+            <LinkedinIcon />
+            <span>LinkedIn</span>
+          </a>
         </div>
 
       </div>

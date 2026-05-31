@@ -2,10 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 import { SKILL_GROUPS, LEARNING } from "@/lib/data";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Skills() {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLElement>(null);
+  const { t } = useLanguage();
+  const s = t.skills;
 
   useEffect(() => {
     const el = ref.current;
@@ -21,8 +24,8 @@ export default function Skills() {
   return (
     <section id="skills" className="sp" ref={ref}>
       <div className="sc">
-        <p className="section-eyebrow">// CAPABILITIES</p>
-        <h2 className="section-title" style={{ marginBottom: "2.5rem" }}>SKILL MATRIX</h2>
+        <p className="section-eyebrow">{s.eyebrow}</p>
+        <h2 className="section-title" style={{ marginBottom: "2.5rem" }}>{s.title}</h2>
 
         <div className="grid-skill-groups">
           {SKILL_GROUPS.map((group, i) => (
@@ -49,12 +52,11 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* currently learning */}
         <div style={{ marginTop: "1.5rem", display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
-          <span style={{ fontSize: ".52rem", letterSpacing: ".2em", color: "var(--purple-light)", textTransform: "uppercase", flexShrink: 0 }}>// Currently Learning</span>
+          <span style={{ fontSize: ".52rem", letterSpacing: ".2em", color: "var(--purple-light)", textTransform: "uppercase", flexShrink: 0 }}>{s.learningLabel}</span>
           <div style={{ display: "flex", gap: ".45rem", flexWrap: "wrap" }}>
-            {LEARNING.map(t => (
-              <span key={t} className="skill-chip skill-chip-learning">{t}</span>
+            {LEARNING.map(tk => (
+              <span key={tk} className="skill-chip skill-chip-learning">{tk}</span>
             ))}
           </div>
         </div>
