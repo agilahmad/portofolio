@@ -104,21 +104,22 @@ const en = {
     title: "PROJECTS",
     items: [
       {
-        name: "CSIRT Ticketing Platform",
-        context: "Cybersecurity incident management system for Mahkamah Konstitusi RI — replacing scattered manual incident reporting.",
+        name: "CSIRT Landing Portal",
+        context: "Public-facing cybersecurity portal for Mahkamah Konstitusi RI — providing threat awareness, news, technical guidelines, and incident submission for the public.",
         contributions: [
-          "Architected multi-role RBAC covering analyst, admin, and management access levels",
-          "Built centralised incident queue with server-side DataTables for real-time filtering",
-          "Implemented full audit trail for every incident state change",
+          "Built news and technical guideline (Pedoman Teknis) publication system for public cybersecurity awareness",
+          "Implemented public incident reporting API integrated with the internal management system",
+          "Built admin panel with RBAC for content management and user administration",
         ],
       },
       {
-        name: "SecureTrack",
-        context: "Penetration testing workflow tracker built for a security-critical government environment.",
+        name: "Security Incident Management System",
+        context: "Internal multi-module security platform for the MK CSIRT team — incident ticketing, penetration testing, evidence collection, and vulnerability management in one system.",
         contributions: [
-          "Applied Controller-Service-Request pattern to isolate business logic from HTTP layer",
-          "Structured audit trail for pentest activities, findings, and remediation status",
-          "Designed for strict data-separation requirements in a classified environment",
+          "Architected multi-role RBAC (analyst, admin, management) controlling access across all modules",
+          "Built incident ticketing with server-side DataTables, full audit trail via ActivityLog",
+          "Developed pentest tracking module with structured findings and remediation workflow",
+          "Integrated 2FA authentication and real-time notification system for security operations",
         ],
       },
       {
@@ -276,21 +277,22 @@ const id: typeof en = {
     title: "PROJECT",
     items: [
       {
-        name: "Platform Tiket CSIRT",
-        context: "Sistem manajemen insiden keamanan siber untuk Mahkamah Konstitusi RI — menggantikan pelaporan insiden manual yang tersebar.",
+        name: "Portal Landing CSIRT",
+        context: "Portal keamanan siber untuk publik Mahkamah Konstitusi RI — menyediakan berita ancaman, pedoman teknis, dan pelaporan insiden dari masyarakat.",
         contributions: [
-          "Merancang RBAC multi-peran yang mencakup level analis, admin, dan manajemen",
-          "Membangun antrian insiden terpusat dengan DataTables server-side untuk pemfilteran real-time",
-          "Mengimplementasikan audit trail lengkap untuk setiap perubahan status insiden",
+          "Membangun sistem publikasi berita dan Pedoman Teknis untuk edukasi keamanan siber publik",
+          "Mengimplementasikan API pelaporan insiden publik yang terintegrasi dengan sistem manajemen internal",
+          "Membangun panel admin dengan RBAC untuk manajemen konten dan administrasi pengguna",
         ],
       },
       {
-        name: "SecureTrack",
-        context: "Pelacak alur kerja penetration testing untuk lingkungan pemerintahan yang kritis secara keamanan.",
+        name: "Sistem Manajemen Insiden Keamanan",
+        context: "Platform keamanan internal multi-modul untuk tim CSIRT MK — tiket insiden, penetration testing, manajemen bukti, dan pelacakan kerentanan dalam satu sistem.",
         contributions: [
-          "Menerapkan pola Controller-Service-Request untuk memisahkan business logic dari lapisan HTTP",
-          "Membangun audit trail terstruktur untuk aktivitas pentest, temuan, dan status remediasi",
-          "Dirancang untuk persyaratan pemisahan data yang ketat di lingkungan terklasifikasi",
+          "Merancang RBAC multi-peran (analis, admin, manajemen) untuk mengontrol akses di semua modul",
+          "Membangun sistem tiket insiden dengan DataTables server-side dan audit trail lengkap via ActivityLog",
+          "Mengembangkan modul pelacakan pentest dengan alur temuan dan remediasi yang terstruktur",
+          "Mengintegrasikan autentikasi 2FA dan sistem notifikasi real-time untuk operasi keamanan",
         ],
       },
       {
