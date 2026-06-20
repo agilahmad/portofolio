@@ -4,21 +4,20 @@ const en = {
   nav: { resume: "RESUME" },
   hero: {
     unitLabel: "// UNIT DESIGNATION",
-    roles: ["Laravel Backend Developer", "PostgreSQL Specialist", "Gov. Systems Engineer", "Security Platform Builder"],
+    roles: ["Backend Developer", "Fullstack Developer"],
     taglineParts: [
       "Specializing in ",
       "Laravel & PostgreSQL",
-      " — hands-on experience building ",
-      "cybersecurity incident management",
+      " — building ",
+      "secure, maintainable web applications",
       " and ",
-      "inventory systems",
-      " for government institutions.",
+      "internal management systems",
+      " end-to-end.",
     ],
     stats: [
       { label: "SYNC SYSTEM", val: "ACTIVE",   green: true  },
       { label: "EXPERIENCE",  val: "6+ MONTH", green: false },
       { label: "PROJECTS",    val: "6 BUILT",  green: false },
-      { label: "CLASS",       val: "BACKEND",  green: false },
     ],
     cta: { projects: "> VIEW PROJECTS", contact: "CONTACT ME" },
     photoLabel: "// BACKEND ENGINEER",
@@ -30,8 +29,8 @@ const en = {
     title: "DATA",
     summaryLabel: "[ SUMMARY ]",
     bio: [
-      "Fresh graduate in Informatics Engineering with hands-on experience building secure, maintainable web applications. Specialised in Laravel and PostgreSQL, with direct exposure to cybersecurity incident management platforms at a government institution.",
-      "Experienced in structured backend architecture (Controller-Service-Request pattern), role-based access control, and server-side data processing inside security-critical environments. Comfortable working in Git-based team workflows.",
+      "Fresh graduate in Informatics Engineering with hands-on experience building secure, maintainable web applications. Specialised in Laravel and PostgreSQL, delivering management systems and internal platforms end-to-end — from database design to deployment.",
+      "Experienced in structured backend architecture (Controller-Service-Request pattern), role-based access control, and server-side data processing in production environments. Comfortable using Git and GitLab for version control.",
     ],
     info: [
       { label: "NAME",     val: "Agil Ahmad Maulana" },
@@ -64,7 +63,7 @@ const en = {
         "Implemented Controller-Service-Request (CSR) architecture across all modules",
         "Built RBAC, input validation, and server-side DataTables for multi-role workflows",
         "Contributed to a data scraping pipeline for cross-system automation",
-        "Collaborated via Git/GitLab in a government security environment",
+        "Used Git/GitLab for version control in a government security environment",
       ],
     },
     training: {
@@ -102,8 +101,8 @@ const en = {
   projects: {
     eyebrow: "// OPERATIONS",
     title: "PROJECTS",
-    items: [
-      {
+    items: {
+      "N-BR-01": {
         name: "CSIRT Landing Portal",
         context: "Public-facing cybersecurity portal for Mahkamah Konstitusi RI — providing threat awareness, news, technical guidelines, and incident submission for the public.",
         contributions: [
@@ -112,7 +111,7 @@ const en = {
           "Built admin panel with RBAC for content management and user administration",
         ],
       },
-      {
+      "N-BR-02": {
         name: "Security Incident Management System",
         context: "Internal multi-module security platform for the MK CSIRT team — incident ticketing, penetration testing, evidence collection, and vulnerability management in one system.",
         contributions: [
@@ -122,7 +121,7 @@ const en = {
           "Integrated 2FA authentication and real-time notification system for security operations",
         ],
       },
-      {
+      "N-BR-03": {
         name: "Medicine Inventory System",
         context: "Hospital pharmacy stock management — eliminating manual reorder calculations that caused frequent shortages.",
         contributions: [
@@ -131,7 +130,7 @@ const en = {
           "Reduced pharmacist manual calculation workload through automated recommendations",
         ],
       },
-      {
+      "N-BR-04": {
         name: "Asset Management Portal",
         context: "Internal asset tracking portal for a multi-department organisation with NestJS microservice integration.",
         contributions: [
@@ -140,7 +139,7 @@ const en = {
           "Handled large asset catalogues via server-side processing and pagination",
         ],
       },
-      {
+      "N-BR-05": {
         name: "Learning Platform",
         context: "Full-featured online learning platform built end-to-end during an intensive training programme.",
         contributions: [
@@ -149,7 +148,7 @@ const en = {
           "Delivered complete working system within a time-constrained bootcamp environment",
         ],
       },
-      {
+      "N-BR-06": {
         name: "Data Scraping Pipeline",
         context: "Automated data-sync pipeline between isolated internal government systems at Mahkamah Konstitusi RI.",
         contributions: [
@@ -158,7 +157,7 @@ const en = {
           "Running in production, saving significant staff time on daily data operations",
         ],
       },
-    ],
+    },
   },
   contact: {
     eyebrow: "// UPLINK",
@@ -177,21 +176,20 @@ const id: typeof en = {
   nav: { resume: "RESUME" },
   hero: {
     unitLabel: "// IDENTIFIKASI UNIT",
-    roles: ["Pengembang Backend Laravel", "Spesialis PostgreSQL", "Engineer Sistem Pemerintahan", "Pembangun Platform Keamanan"],
+    roles: ["Backend Developer", "Fullstack Developer"],
     taglineParts: [
       "Spesialisasi dalam ",
       "Laravel & PostgreSQL",
-      " — pengalaman langsung membangun ",
-      "manajemen insiden keamanan siber",
-      " dan ",
-      "sistem inventaris",
-      " untuk institusi pemerintah.",
+      " — membangun ",
+      "aplikasi web yang aman",
+      " serta ",
+      "sistem manajemen internal",
+      " dari hulu ke hilir.",
     ],
     stats: [
       { label: "STATUS SISTEM", val: "AKTIF",    green: true  },
       { label: "PENGALAMAN",    val: "6+ BULAN", green: false },
       { label: "PROYEK",        val: "6 DIBUAT", green: false },
-      { label: "KELAS",         val: "BACKEND",  green: false },
     ],
     cta: { projects: "> LIHAT PROYEK", contact: "HUBUNGI SAYA" },
     photoLabel: "// BACKEND ENGINEER",
@@ -203,8 +201,8 @@ const id: typeof en = {
     title: "DATA",
     summaryLabel: "[ RINGKASAN ]",
     bio: [
-      "Lulusan baru Teknik Informatika dengan pengalaman langsung membangun aplikasi web yang aman dan mudah dipelihara. Spesialisasi dalam Laravel dan PostgreSQL, dengan paparan langsung pada platform manajemen insiden keamanan siber di institusi pemerintah.",
-      "Berpengalaman dalam arsitektur backend terstruktur (pola Controller-Service-Request), kontrol akses berbasis peran, dan pemrosesan data sisi server di lingkungan yang kritis secara keamanan. Nyaman bekerja dalam alur kerja tim berbasis Git.",
+      "Lulusan baru Teknik Informatika dengan pengalaman langsung membangun aplikasi web yang aman dan mudah dipelihara. Spesialisasi dalam Laravel dan PostgreSQL, membangun sistem manajemen dan platform internal dari hulu ke hilir — dari desain database hingga deployment.",
+      "Berpengalaman dalam arsitektur backend terstruktur (pola Controller-Service-Request), kontrol akses berbasis peran, dan pemrosesan data sisi server di lingkungan production. Terbiasa menggunakan Git dan GitLab untuk kontrol versi.",
     ],
     info: [
       { label: "NAMA",      val: "Agil Ahmad Maulana" },
@@ -237,7 +235,7 @@ const id: typeof en = {
         "Mengimplementasikan arsitektur Controller-Service-Request (CSR) di seluruh modul",
         "Membangun RBAC, validasi input, dan DataTables server-side untuk alur kerja multi-peran",
         "Berkontribusi pada pipeline scraping data untuk otomasi lintas sistem",
-        "Berkolaborasi via Git/GitLab di lingkungan keamanan pemerintah",
+        "Menggunakan Git/GitLab untuk kontrol versi di lingkungan keamanan pemerintah",
       ],
     },
     training: {
@@ -275,8 +273,8 @@ const id: typeof en = {
   projects: {
     eyebrow: "// OPERASI",
     title: "PROJECT",
-    items: [
-      {
+    items: {
+      "N-BR-01": {
         name: "Portal Landing CSIRT",
         context: "Portal keamanan siber untuk publik Mahkamah Konstitusi RI — menyediakan berita ancaman, pedoman teknis, dan pelaporan insiden dari masyarakat.",
         contributions: [
@@ -285,7 +283,7 @@ const id: typeof en = {
           "Membangun panel admin dengan RBAC untuk manajemen konten dan administrasi pengguna",
         ],
       },
-      {
+      "N-BR-02": {
         name: "Sistem Manajemen Insiden Keamanan",
         context: "Platform keamanan internal multi-modul untuk tim CSIRT MK — tiket insiden, penetration testing, manajemen bukti, dan pelacakan kerentanan dalam satu sistem.",
         contributions: [
@@ -295,7 +293,7 @@ const id: typeof en = {
           "Mengintegrasikan autentikasi 2FA dan sistem notifikasi real-time untuk operasi keamanan",
         ],
       },
-      {
+      "N-BR-03": {
         name: "Sistem Inventaris Obat",
         context: "Manajemen stok apotek rumah sakit — menghilangkan perhitungan pemesanan ulang manual yang sering menyebabkan kekurangan.",
         contributions: [
@@ -304,7 +302,7 @@ const id: typeof en = {
           "Mengurangi beban perhitungan manual apoteker melalui rekomendasi otomatis",
         ],
       },
-      {
+      "N-BR-04": {
         name: "Portal Manajemen Aset",
         context: "Portal pelacakan aset internal untuk organisasi multi-departemen dengan integrasi microservice NestJS.",
         contributions: [
@@ -313,7 +311,7 @@ const id: typeof en = {
           "Menangani katalog aset besar melalui pemrosesan server-side dan pagination",
         ],
       },
-      {
+      "N-BR-05": {
         name: "Platform Pembelajaran",
         context: "Platform pembelajaran online berfitur lengkap yang dibangun dari awal selama program pelatihan intensif.",
         contributions: [
@@ -322,7 +320,7 @@ const id: typeof en = {
           "Menghasilkan sistem yang berfungsi penuh dalam lingkungan bootcamp yang terbatas waktu",
         ],
       },
-      {
+      "N-BR-06": {
         name: "Pipeline Scraping Data",
         context: "Pipeline sinkronisasi data otomatis antar sistem internal pemerintah yang terisolasi di Mahkamah Konstitusi RI.",
         contributions: [
@@ -331,7 +329,7 @@ const id: typeof en = {
           "Berjalan di production, menghemat waktu staf yang signifikan pada operasi data harian",
         ],
       },
-    ],
+    },
   },
   contact: {
     eyebrow: "// UPLINK",

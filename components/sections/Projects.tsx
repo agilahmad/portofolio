@@ -14,8 +14,9 @@ export default function Projects() {
         <h2 className="section-title" style={{ marginBottom: "2.5rem" }}>{p.title}</h2>
 
         <div className="grid-projects">
-          {PROJECT_META.map((meta, idx) => {
-            const item = p.items[idx];
+          {PROJECT_META.map((meta) => {
+            const item = p.items[meta.id as keyof typeof p.items];
+            if (!item) return null;
             return (
               <div key={meta.id} className="project-card" style={{ padding: "1.4rem" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 1, background: "linear-gradient(90deg,transparent,var(--purple),transparent)" }} />
@@ -49,7 +50,20 @@ export default function Projects() {
                   <div style={{ display: "flex", flexWrap: "wrap", gap: ".35rem" }}>
                     {meta.tags.map(tg => <span key={tg} className="tag" style={{ fontSize: ".48rem" }}>{tg}</span>)}
                   </div>
-                  <span style={{ fontSize: ".5rem", color: "var(--text-muted)", letterSpacing: ".1em" }}>{meta.year}</span>
+                  <div style={{ display: "flex", alignItems: "center", gap: ".6rem" }}>
+                    {meta.url && (
+                      <a
+                        href={meta.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-live-link"
+                        aria-label={`View live site: ${item.name} (opens in new tab)`}
+                      >
+                        LIVE <span aria-hidden="true">↗</span>
+                      </a>
+                    )}
+                    <span style={{ fontSize: ".5rem", color: "var(--text-muted)", letterSpacing: ".1em" }}>{meta.year}</span>
+                  </div>
                 </div>
               </div>
             );

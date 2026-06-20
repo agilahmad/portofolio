@@ -1,6 +1,7 @@
 "use client";
 
 import { useLanguage } from "@/context/LanguageContext";
+import { CONTACT } from "@/lib/data";
 
 const GithubIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -27,14 +28,14 @@ export default function Contact() {
         <p style={{ color: "var(--text-muted)", fontSize: ".8rem", marginBottom: "2.5rem", letterSpacing: ".05em" }}>{c.subtitle}</p>
 
         <a
-          href="mailto:agilahmadmaulana3@gmail.com"
+          href={`mailto:${CONTACT.email}`}
           style={{ display: "block", color: "var(--text)", textDecoration: "none", fontSize: "clamp(.8rem,2.5vw,1rem)", letterSpacing: ".06em", marginBottom: "2rem", transition: "color .2s" }}
           className="contact-email-link"
         >
-          agilahmadmaulana3@gmail.com
+          {CONTACT.email}
         </a>
 
-        <a href="mailto:agilahmadmaulana3@gmail.com" className="btn btn-outline-green" style={{ marginBottom: "2.5rem" }}>
+        <a href={`mailto:${CONTACT.email}`} className="btn btn-outline-green" style={{ marginBottom: "2.5rem" }}>
           {c.cta}
         </a>
 
@@ -45,11 +46,11 @@ export default function Contact() {
         </div>
 
         <div style={{ display: "flex", justifyContent: "center", gap: "1.25rem" }}>
-          <a href="https://github.com/agilahmad" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="GitHub">
+          <a href={CONTACT.github} target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="GitHub">
             <GithubIcon />
             <span>GitHub</span>
           </a>
-          <a href="https://linkedin.com/in/agilahmad" target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="LinkedIn">
+          <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="LinkedIn">
             <LinkedinIcon />
             <span>LinkedIn</span>
           </a>

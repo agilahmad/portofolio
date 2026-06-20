@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 import { translations, Lang } from "@/lib/i18n";
 
 type CtxType = {
@@ -15,17 +15,21 @@ const LanguageContext = createContext<CtxType>({
   t: translations.en,
 });
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as Lang;
-    if (saved === "en" || saved === "id") setLangState(saved);
-  }, []);
+export function LanguageProvider({
+  children,
+  initialLang = "en",
+}: {
+  children: ReactNode;
+  initialLang?: Lang;
+}) {
+  // Initialised from a server-read cookie so SSR and the first client render
+  // agree — no hydration mismatch and no language flash on load.
+  const [lang, setLangState] = useState<Lang>(initialLang);
 
   const setLang = (l: Lang) => {
     setLangState(l);
-    localStorage.setItem("lang", l);
+    // Persist in a cookie so the server can render the right language next visit.
+    document.cookie = `lang=${l}; path=/; max-age=31536000; samesite=lax`;
   };
 
   return (

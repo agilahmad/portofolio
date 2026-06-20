@@ -9,6 +9,7 @@ export function HeroTypewriter() {
   const { t } = useLanguage();
   const role = useTypewriter(t.hero.roles);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setMounted(true); }, []);
 
   return (

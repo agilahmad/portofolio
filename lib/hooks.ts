@@ -3,29 +3,36 @@
 import { useEffect, useState } from "react";
 
 export function useTypewriter(words: string[], speed = 90, pause = 1800) {
-  const [text, setText]   = useState("");
-  const [wi, setWi]       = useState(0);
-  const [ci, setCi]       = useState(0);
-  const [del, setDel]     = useState(false);
+  const [text, setText]             = useState("");
+  const [wordIndex, setWordIndex]   = useState(0);
+  const [charIndex, setCharIndex]   = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const word = words[wi];
-    if (!del) {
-      if (ci < word.length) {
-        const t = setTimeout(() => { setCi(c => c + 1); setText(word.slice(0, ci + 1)); }, speed);
+    const word = words[wordIndex];
+    if (!isDeleting) {
+      if (charIndex < word.length) {
+        const t = setTimeout(() => {
+          setCharIndex(c => c + 1);
+          setText(word.slice(0, charIndex + 1));
+        }, speed);
         return () => clearTimeout(t);
       }
-      const t = setTimeout(() => setDel(true), pause);
+      const t = setTimeout(() => setIsDeleting(true), pause);
       return () => clearTimeout(t);
     } else {
-      if (ci > 0) {
-        const t = setTimeout(() => { setCi(c => c - 1); setText(word.slice(0, ci - 1)); }, speed / 2);
+      if (charIndex > 0) {
+        const t = setTimeout(() => {
+          setCharIndex(c => c - 1);
+          setText(word.slice(0, charIndex - 1));
+        }, speed / 2);
         return () => clearTimeout(t);
       }
-      setDel(false);
-      setWi(i => (i + 1) % words.length);
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsDeleting(false);
+      setWordIndex(i => (i + 1) % words.length);
     }
-  }, [ci, del, wi, words, speed, pause]);
+  }, [charIndex, isDeleting, wordIndex, words, speed, pause]);
 
   return text;
 }

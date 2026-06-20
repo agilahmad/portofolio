@@ -25,7 +25,7 @@ export default function Navbar() {
         <a href="#" style={{ display: "flex", alignItems: "center", gap: ".7rem", textDecoration: "none" }}>
           <span className="dot" />
           <span style={{ fontSize: ".7rem", letterSpacing: ".22em", textTransform: "uppercase", color: "var(--text)" }}>
-            AAM <span style={{ color: "var(--green)" }}>// ONLINE</span>
+            AAM <span style={{ color: "var(--green)" }}>{"// ONLINE"}</span>
           </span>
         </a>
 

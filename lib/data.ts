@@ -1,5 +1,13 @@
 export const NAV_LINKS = ["about", "skills", "experience", "projects", "contact"] as const;
 
+export const CONTACT = {
+  email:          "agilahmadmaulana3@gmail.com",
+  github:         "https://github.com/agilahmad",
+  githubHandle:   "agilahmad",
+  linkedin:       "https://linkedin.com/in/agilahmad",
+  linkedinHandle: "agilahmad",
+} as const;
+
 export interface SkillGroup {
   cat: string;
   skills: string[];
@@ -15,7 +23,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
 export const LEARNING = ["Go", "Python"];
 
 export const PROJECT_META = [
-  { id: "N-BR-01", tags: ["Laravel", "PostgreSQL", "RBAC", "DataTables"], status: "DEPLOYED",  year: "2026" },
+  { id: "N-BR-01", tags: ["Laravel", "PostgreSQL", "RBAC", "DataTables"], status: "DEPLOYED",  year: "2026", url: "https://csirt.mkri.id/" },
   { id: "N-BR-02", tags: ["Laravel", "PostgreSQL", "CSR Pattern"],        status: "DEPLOYED",  year: "2026" },
   { id: "N-BR-03", tags: ["Laravel", "MySQL", "RoP Algorithm"],           status: "COMPLETED", year: "2025" },
   { id: "N-BR-04", tags: ["Laravel", "NestJS", "PostgreSQL"],             status: "DEPLOYED",  year: "2026" },
