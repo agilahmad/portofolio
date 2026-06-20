@@ -78,7 +78,7 @@ export default function Navbar() {
             <a key={s} href={`#${s}`} onClick={() => setMenuOpen(false)}>{s}</a>
           ))}
           <a
-            href="/CV - Agil Ahmad Maulana.pdf"
+            href="/CV-Agilahmadmaulana.pdf"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}

@@ -42,9 +42,9 @@ export default function Hero() {
             <div style={{ position: "relative" }}>
               <div style={{ fontSize: ".52rem", letterSpacing: ".22em", color: "var(--purple-light)", textTransform: "uppercase", marginBottom: ".5rem", textAlign: "right" }}>UNIT: N-AAM-001</div>
               <div className="photo-frame" style={{ width: 300, height: 420 }}>
-                <Image src="/foto-hero.jpeg" alt="Agil Ahmad Maulana" fill style={{ objectFit: "cover", objectPosition: "top center" }} priority />
+                <Image src="/foto-hero.webp" alt="Agil Ahmad Maulana" fill style={{ objectFit: "cover", objectPosition: "top center" }} priority />
                 <div className="photo-color-reveal">
-                  <Image src="/foto-hero.jpeg" alt="" fill style={{ objectFit: "cover", objectPosition: "top center" }} aria-hidden />
+                  <Image src="/foto-hero.webp" alt="" fill style={{ objectFit: "cover", objectPosition: "top center" }} aria-hidden />
                 </div>
                 <div className="photo-corner-tr" />
                 <div className="photo-corner-bl" />
