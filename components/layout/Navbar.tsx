@@ -32,7 +32,7 @@ export default function Navbar() {
         <div className="nav-desktop">
           {NAV_LINKS.map(s => <a key={s} href={`#${s}`} className="nav-link">{s}</a>)}
           <a
-            href="/CV - Agil Ahmad Maulana.pdf"
+            href="/CV-Agilahmadmaulana.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-glow-green"

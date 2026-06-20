@@ -18,9 +18,9 @@ export default function About() {
           {/* photo */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: ".6rem" }}>
             <div className="photo-frame" style={{ width: "100%", maxWidth: 280, height: 370 }}>
-              <Image src="/foto-about.webp" alt="Agil Ahmad Maulana" fill style={{ objectFit: "cover", objectPosition: "center top" }} />
+              <Image src="/foto-about.webp" alt="Agil Ahmad Maulana" fill sizes="280px" style={{ objectFit: "cover", objectPosition: "center top" }} />
               <div className="photo-color-reveal">
-                <Image src="/foto-about.webp" alt="" fill style={{ objectFit: "cover", objectPosition: "center top" }} aria-hidden />
+                <Image src="/foto-about.webp" alt="" fill sizes="280px" style={{ objectFit: "cover", objectPosition: "center top" }} aria-hidden />
               </div>
               <div className="photo-corner-tr" />
               <div className="photo-corner-bl" />
