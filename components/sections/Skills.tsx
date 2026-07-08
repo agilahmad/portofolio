@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { SKILL_GROUPS, LEARNING } from "@/lib/data";
+import Image from "next/image";
+import { SKILL_GROUPS, LEARNING, SKILL_ICONS } from "@/lib/data";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Skills() {
@@ -45,7 +46,12 @@ export default function Skills() {
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: ".45rem" }}>
                 {group.skills.map(skill => (
-                  <span key={skill} className="skill-chip">{skill}</span>
+                  <span key={skill} className="skill-chip">
+                    {SKILL_ICONS[skill] && (
+                      <Image src={SKILL_ICONS[skill]} alt="" width={14} height={14} style={{ objectFit: "contain" }} />
+                    )}
+                    {skill}
+                  </span>
                 ))}
               </div>
             </div>
@@ -56,7 +62,12 @@ export default function Skills() {
           <span style={{ fontSize: ".52rem", letterSpacing: ".2em", color: "var(--purple-light)", textTransform: "uppercase", flexShrink: 0 }}>{s.learningLabel}</span>
           <div style={{ display: "flex", gap: ".45rem", flexWrap: "wrap" }}>
             {LEARNING.map(tk => (
-              <span key={tk} className="skill-chip skill-chip-learning">{tk}</span>
+              <span key={tk} className="skill-chip skill-chip-learning">
+                {SKILL_ICONS[tk] && (
+                  <Image src={SKILL_ICONS[tk]} alt="" width={14} height={14} style={{ objectFit: "contain" }} />
+                )}
+                {tk}
+              </span>
             ))}
           </div>
         </div>

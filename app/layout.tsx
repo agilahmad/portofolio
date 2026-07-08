@@ -3,6 +3,7 @@ import { Geist_Mono, Orbitron } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
+import ScrollReveal from "@/components/layout/ScrollReveal";
 import type { Lang } from "@/lib/i18n";
 
 const geistMono = Geist_Mono({
@@ -30,7 +31,11 @@ export default async function RootLayout({
   return (
     <html lang={initialLang} suppressHydrationWarning>
       <body className={`${geistMono.variable} ${orbitron.variable} antialiased`} suppressHydrationWarning>
+        <noscript>
+          <style dangerouslySetInnerHTML={{ __html: "[data-reveal]{opacity:1;transform:none}" }} />
+        </noscript>
         <LanguageProvider initialLang={initialLang}>{children}</LanguageProvider>
+        <ScrollReveal />
       </body>
     </html>
   );

@@ -16,7 +16,7 @@ export default function About() {
         <div className="about-outer">
 
           {/* photo */}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: ".6rem" }}>
+          <div data-reveal style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: ".6rem" }}>
             <div className="photo-frame" style={{ width: "100%", maxWidth: 280, height: 370 }}>
               <Image src="/foto-about.webp" alt="Agil Ahmad Maulana" fill sizes="280px" style={{ objectFit: "cover", objectPosition: "center top" }} />
               <div className="photo-color-reveal">
@@ -44,14 +44,14 @@ export default function About() {
           </div>
 
           {/* bio */}
-          <div className="panel panel-top-bar" style={{ padding: "1.75rem" }}>
+          <div data-reveal className="panel panel-top-bar" style={{ padding: "1.75rem", transitionDelay: ".1s" }}>
             <div style={{ fontSize: ".58rem", letterSpacing: ".2em", color: "var(--green)", marginBottom: "1.25rem" }}>{a.summaryLabel}</div>
             <p style={{ color: "var(--text-muted)", lineHeight: 1.85, fontSize: ".85rem", marginBottom: "1.2rem" }}>{a.bio[0]}</p>
             <p style={{ color: "var(--text-muted)", lineHeight: 1.85, fontSize: ".85rem" }}>{a.bio[1]}</p>
           </div>
 
           {/* info */}
-          <div>
+          <div data-reveal style={{ transitionDelay: ".2s" }}>
             {a.info.map(item => (
               <div key={item.label} style={{ display: "flex", gap: "1rem", padding: ".65rem 0", borderBottom: "1px solid rgba(123,47,190,.12)", alignItems: "flex-start" }}>
                 <span style={{ fontSize: ".52rem", letterSpacing: ".18em", color: "var(--green)", textTransform: "uppercase", minWidth: 72, paddingTop: ".1rem", flexShrink: 0 }}>

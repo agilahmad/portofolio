@@ -16,6 +16,25 @@
   --border-green: rgba(57, 255, 20, 0.3);
 }
 
+/* ─── TAILWIND THEME (maps the design tokens above → utility classes) ─── */
+@theme inline {
+  --color-base:         var(--bg);
+  --color-surface:      var(--surface);
+  --color-surface-2:    var(--surface-2);
+  --color-fg:           var(--text);
+  --color-muted:        var(--text-muted);
+  --color-green:        var(--green);
+  --color-cyan:         var(--cyan);
+  --color-purple:       var(--purple);
+  --color-purple-light: var(--purple-light);
+  --color-purple-dark:  var(--purple-dark);
+  --color-border:       var(--border);
+  --color-border-green: var(--border-green);
+
+  --font-mono:    var(--font-geist-mono), "Courier New", monospace;
+  --font-display: var(--font-orbitron), sans-serif;
+}
+
 /* ─── RESET & BASE ─── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -491,7 +510,7 @@ body::after {
 .grid-about    { display: grid; grid-template-columns: 1fr;               gap: 2rem;  }
 .grid-skills        { display: grid; grid-template-columns: 1fr;     gap: 0;      }
 .grid-skill-groups  { display: grid; grid-template-columns: 1fr; gap: 1rem;       }
-.skill-chip         { font-size: .68rem; letter-spacing: .08em; color: var(--text); background: rgba(123,47,190,.08); border: 1px solid rgba(123,47,190,.25); padding: .25rem .7rem; text-transform: uppercase; }
+.skill-chip         { display: inline-flex; align-items: center; gap: .4rem; font-size: .68rem; letter-spacing: .08em; color: var(--text); background: rgba(123,47,190,.08); border: 1px solid rgba(123,47,190,.25); padding: .25rem .7rem; text-transform: uppercase; }
 .skill-chip-learning{ color: var(--purple-light); background: rgba(157,78,221,.06); border-color: rgba(157,78,221,.3); }
 .grid-exp      { display: grid; grid-template-columns: 1fr;               gap: 2rem;  }
 .grid-projects { display: grid; grid-template-columns: 1fr;               gap: 1.5rem;}
@@ -530,6 +549,10 @@ body::after {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--border);
+  /* skeleton shimmer — shows while the photo loads, hidden once it paints on top */
+  background: linear-gradient(100deg, var(--surface) 25%, rgba(123,47,190,.14) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
 }
 .photo-frame img {
   display: block;
@@ -675,4 +698,18 @@ body::after {
   .contact-card:hover  { border-color: var(--border) !important; box-shadow: none !important; }
   .btn:hover           { transform: none; }
   .nav-link::after     { display: none; }
+}
+
+/* ─── SCROLL REVEAL ─── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s ease-out, transform .6s ease-out;
+}
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { transition: none; }
 }

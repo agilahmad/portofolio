@@ -21,7 +21,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="sp">
-      <div style={{ maxWidth: 560, margin: "0 auto", padding: "0 1.25rem", textAlign: "center" }}>
+      <div data-reveal style={{ maxWidth: 560, margin: "0 auto", padding: "0 1.25rem", textAlign: "center" }}>
 
         <p className="section-eyebrow" style={{ display: "flex", justifyContent: "center" }}>{c.eyebrow}</p>
         <h2 className="section-title" style={{ marginBottom: ".75rem" }}>{c.title}</h2>

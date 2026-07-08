@@ -19,7 +19,7 @@ export default function Experience() {
             <div className="timeline-line" />
 
             {/* internship */}
-            <div style={{ position: "relative", marginBottom: "2rem" }}>
+            <div data-reveal style={{ position: "relative", marginBottom: "2rem" }}>
               <div className="timeline-dot" />
               <div className="panel panel-top-green" style={{ padding: "1.4rem", marginLeft: ".6rem" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: ".3rem", marginBottom: ".5rem" }}>
@@ -39,7 +39,7 @@ export default function Experience() {
             </div>
 
             {/* training */}
-            <div style={{ position: "relative" }}>
+            <div data-reveal style={{ position: "relative", transitionDelay: ".1s" }}>
               <div className="timeline-dot timeline-dot-purple" />
               <div className="panel" style={{ padding: "1.4rem", marginLeft: ".6rem" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: ".3rem", marginBottom: ".5rem" }}>
@@ -62,7 +62,7 @@ export default function Experience() {
           {/* right column */}
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
 
-            <div className="panel panel-top-purple" style={{ padding: "1.4rem" }}>
+            <div data-reveal className="panel panel-top-purple" style={{ padding: "1.4rem" }}>
               <div style={{ fontSize: ".56rem", letterSpacing: ".2em", color: "var(--green)", marginBottom: ".9rem" }}>{e.educationLabel}</div>
               <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: ".3rem", marginBottom: ".4rem" }}>
                 <span style={{ fontSize: ".58rem", letterSpacing: ".12em", color: "var(--text-muted)", textTransform: "uppercase" }}>{e.education.period}</span>
@@ -75,7 +75,7 @@ export default function Experience() {
               </div>
             </div>
 
-            <div className="panel panel-top-green" style={{ padding: "1.4rem" }}>
+            <div data-reveal className="panel panel-top-green" style={{ padding: "1.4rem", transitionDelay: ".1s" }}>
               <div style={{ fontSize: ".56rem", letterSpacing: ".2em", color: "var(--green)", marginBottom: ".9rem" }}>{e.certificationLabel}</div>
               <div style={{ display: "flex", alignItems: "center", gap: ".9rem", padding: ".7rem", border: "1px solid var(--border)" }}>
                 <div style={{ width: 36, height: 36, background: "rgba(123,47,190,.2)", border: "1px solid var(--purple)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: ".95rem", color: "var(--purple-light)" }}>◈</div>
@@ -89,7 +89,7 @@ export default function Experience() {
               </div>
             </div>
 
-            <div className="grid-stats">
+            <div data-reveal className="grid-stats" style={{ transitionDelay: ".2s" }}>
               {e.stats.map(s => (
                 <div key={s.label} className="panel" style={{ padding: "1rem", textAlign: "center" }}>
                   <div style={{ fontSize: "1.4rem", fontWeight: 900, color: "var(--green)", textShadow: "0 0 12px rgba(57,255,20,.4)", letterSpacing: ".04em" }}>{s.val}</div>

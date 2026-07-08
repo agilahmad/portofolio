@@ -25,8 +25,8 @@ const en = {
     classLabel: "CLASS: SPECIALIST",
   },
   about: {
-    eyebrow: "// ABOUT ME.",
-    title: "DATA",
+    eyebrow: "// DATA",
+    title: "ABOUT ME",
     summaryLabel: "[ SUMMARY ]",
     bio: [
       "Fresh graduate in Informatics Engineering with hands-on experience building secure, maintainable web applications. Specialised in Laravel and PostgreSQL, delivering management systems and internal platforms end-to-end — from database design to deployment.",
@@ -197,8 +197,8 @@ const id: typeof en = {
     classLabel: "KELAS: SPESIALIS",
   },
   about: {
-    eyebrow: "// TENTANG SAYA",
-    title: "DATA",
+    eyebrow: "// DATA",
+    title: "TENTANG SAYA",
     summaryLabel: "[ RINGKASAN ]",
     bio: [
       "Lulusan baru Teknik Informatika dengan pengalaman langsung membangun aplikasi web yang aman dan mudah dipelihara. Spesialisasi dalam Laravel dan PostgreSQL, membangun sistem manajemen dan platform internal dari hulu ke hilir — dari desain database hingga deployment.",
