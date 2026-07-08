@@ -9,7 +9,7 @@ import Contact    from "@/components/sections/Contact";
 
 export default function Home() {
   return (
-    <main style={{ background: "var(--bg)", minHeight: "100vh" }}>
+    <main className="min-h-screen bg-base">
       <Navbar />
       <Hero />
       <About />

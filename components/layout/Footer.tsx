@@ -5,15 +5,15 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function Footer() {
   const { t } = useLanguage();
   return (
-    <footer style={{ borderTop: "1px solid var(--border)", padding: "1.5rem 1.25rem" }}>
+    <footer className="border-t border-border px-5 py-6">
       <div className="footer-inner">
-        <span style={{ fontSize: ".58rem", color: "var(--text-muted)", letterSpacing: ".14em", textTransform: "uppercase" }}>
+        <span className="text-[.58rem] tracking-[.14em] text-muted uppercase">
           AGIL AHMAD MAULANA // N-AAM-001
         </span>
-        <span style={{ fontSize: ".58rem", color: "var(--text-muted)", letterSpacing: ".14em", textTransform: "uppercase" }}>
+        <span className="text-[.58rem] tracking-[.14em] text-muted uppercase">
           {t.footer.role}
         </span>
-        <span style={{ fontSize: ".58rem", color: "var(--text-muted)", letterSpacing: ".14em", textTransform: "uppercase" }}>
+        <span className="text-[.58rem] tracking-[.14em] text-muted uppercase">
           {t.footer.copy}
         </span>
       </div>

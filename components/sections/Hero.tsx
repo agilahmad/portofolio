@@ -3,34 +3,38 @@ import { HeroTypewriter, HeroTagline, HeroStats, HeroCTA } from "./HeroClient";
 
 export default function Hero() {
   return (
-    <section className="grid-bg" style={{ minHeight: "100vh", paddingTop: 58, position: "relative", display: "flex", alignItems: "center", overflow: "hidden" }}>
-      <div style={{ position: "absolute", top: "8%", right: "4%", width: "min(500px,60vw)", height: "min(500px,60vw)", background: "radial-gradient(circle,rgba(123,47,190,.12) 0%,transparent 70%)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", bottom: "15%", left: "3%", width: "min(300px,40vw)", height: "min(300px,40vw)", background: "radial-gradient(circle,rgba(57,255,20,.05) 0%,transparent 70%)", pointerEvents: "none" }} />
+    <section className="grid-bg relative flex min-h-screen items-center overflow-hidden pt-[58px]">
+      <div className="pointer-events-none absolute top-[8%] right-[4%] h-[min(500px,60vw)] w-[min(500px,60vw)] bg-[radial-gradient(circle,var(--hero-glow-purple)_0%,transparent_70%)]" />
+      <div className="pointer-events-none absolute bottom-[15%] left-[3%] h-[min(300px,40vw)] w-[min(300px,40vw)] bg-[radial-gradient(circle,var(--hero-glow-green)_0%,transparent_70%)]" />
 
-      <div className="sc" style={{ padding: "4rem 1.25rem 3rem", width: "100%" }}>
+      <div className="sc w-full px-5 pt-16 pb-12">
         <div className="hero-layout">
 
           {/* text — server rendered for LCP */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: ".75rem", marginBottom: "2rem", flexWrap: "wrap" }}>
-              <span style={{ fontSize: ".6rem", letterSpacing: ".28em", color: "var(--green)", textTransform: "uppercase" }}>{"// UNIT DESIGNATION"}</span>
-              <div style={{ width: 40, height: 1, background: "var(--green)", flexShrink: 0 }} />
-              <span style={{ fontSize: ".6rem", letterSpacing: ".1em", color: "var(--text-muted)" }}>JAKARTA, INDONESIA</span>
+            <div className="mb-6 flex flex-wrap items-center gap-3">
+              <span className="text-[.6rem] tracking-[.28em] text-green uppercase">{"// UNIT DESIGNATION"}</span>
+              <div className="h-px w-10 shrink-0 bg-green" />
+              <span className="text-[.6rem] tracking-[.1em] text-muted">JAKARTA, INDONESIA</span>
             </div>
 
+            <div className="mb-3 text-[.65rem] tracking-[.3em] text-muted uppercase">HELLO, MY NAME IS</div>
+
             {/* LCP element — server rendered, h1 for accessibility */}
-            <h1 aria-label="Agil Ahmad Maulana" style={{ marginBottom: "1.75rem", lineHeight: 1, fontWeight: "inherit", fontSize: "inherit" }}>
-              <span className="glitch" data-text="AGIL" style={{ display: "block", fontSize: "clamp(3rem,10vw,7rem)", fontWeight: 900, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--text)" }}>AGIL</span>
-              <span style={{ display: "block", fontFamily: "var(--font-orbitron), sans-serif", fontSize: "clamp(2.6rem,9vw,6.2rem)", fontWeight: 900, letterSpacing: ".02em", textTransform: "uppercase", color: "transparent", WebkitTextStroke: "2px var(--purple-light)" }}>AHMAD</span>
-              <span style={{ display: "block", fontSize: "clamp(2rem,7vw,5rem)", fontWeight: 900, letterSpacing: ".04em", textTransform: "uppercase", color: "var(--green)", textShadow: "0 0 40px rgba(57,255,20,.45)" }}>MAULANA</span>
+            <h1 aria-label="Agil Ahmad Maulana" className="mb-7 leading-none">
+              <span className="glitch block text-[clamp(3rem,10vw,7rem)] font-black tracking-[.04em] text-fg uppercase" data-text="AGIL">AGIL</span>
+              <span className="block font-display text-[clamp(2.6rem,9vw,6.2rem)] font-black tracking-[.02em] text-transparent uppercase [-webkit-text-stroke:2px_var(--purple-light)]">AHMAD</span>
+              <span className="block text-[clamp(2rem,7vw,5rem)] font-black tracking-[.04em] text-green uppercase [text-shadow:0_0_40px_rgba(57,255,20,.45)]">MAULANA</span>
             </h1>
 
             {/* typewriter — client only */}
-            <div style={{ display: "flex", alignItems: "center", gap: ".4rem", marginBottom: "1rem", flexWrap: "wrap" }}>
-              <span style={{ fontSize: ".8rem", color: "var(--purple-light)" }}>[ </span>
+            <div className="mb-3 flex flex-wrap items-center gap-[.4rem]">
+              <span className="text-[.8rem] text-purple-light">[ </span>
               <HeroTypewriter />
-              <span style={{ fontSize: ".8rem", color: "var(--purple-light)" }}> ]</span>
+              <span className="text-[.8rem] text-purple-light"> ]</span>
             </div>
+
+            <div className="mb-6 text-[.58rem] tracking-[.3em] text-purple-light uppercase">{"// AVID PROGRAMMER"}</div>
 
             <HeroTagline />
             <HeroStats />
@@ -39,12 +43,12 @@ export default function Hero() {
 
           {/* photo */}
           <div className="hero-photo-col">
-            <div style={{ position: "relative" }}>
-              <div style={{ fontSize: ".52rem", letterSpacing: ".22em", color: "var(--purple-light)", textTransform: "uppercase", marginBottom: ".5rem", textAlign: "right" }}>UNIT: N-AAM-001</div>
-              <div className="photo-frame" style={{ width: 300, height: 420 }}>
-                <Image src="/foto-hero.webp" alt="Agil Ahmad Maulana" fill sizes="300px" style={{ objectFit: "cover", objectPosition: "top center" }} priority />
+            <div className="relative">
+              <div className="mb-2 text-right text-[.52rem] tracking-[.22em] text-purple-light uppercase">UNIT: N-AAM-001</div>
+              <div className="photo-frame h-[420px] w-[300px]">
+                <Image src="/foto-hero.webp" alt="Agil Ahmad Maulana" fill sizes="300px" className="object-cover object-top" priority />
                 <div className="photo-color-reveal">
-                  <Image src="/foto-hero.webp" alt="" fill sizes="300px" style={{ objectFit: "cover", objectPosition: "top center" }} aria-hidden />
+                  <Image src="/foto-hero.webp" alt="" fill sizes="300px" className="object-cover object-top" aria-hidden />
                 </div>
                 <div className="photo-corner-tr" />
                 <div className="photo-corner-bl" />
@@ -52,9 +56,9 @@ export default function Hero() {
                 <div className="photo-overlay" />
                 <div className="photo-label">{"// BACKEND ENGINEER"}</div>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: ".5rem", marginTop: ".6rem", justifyContent: "flex-end" }}>
+              <div className="mt-[.6rem] flex items-center justify-end gap-2">
                 <span className="dot" />
-                <span style={{ fontSize: ".5rem", letterSpacing: ".2em", color: "var(--green)", textTransform: "uppercase" }}>STATUS: ONLINE</span>
+                <span className="text-[.5rem] tracking-[.2em] text-green uppercase">STATUS: ONLINE</span>
               </div>
             </div>
           </div>
@@ -63,11 +67,11 @@ export default function Hero() {
       </div>
 
       <div className="hero-corner">
-        <div style={{ width: 40, height: 1, background: "var(--border)", marginBottom: ".3rem" }} />
-        <div style={{ fontSize: ".52rem", letterSpacing: ".15em", color: "var(--text-muted)", textTransform: "uppercase" }}>CLASS: SPECIALIST</div>
+        <div className="mb-[.3rem] h-px w-10 bg-border" />
+        <div className="text-[.52rem] tracking-[.15em] text-muted uppercase">CLASS: SPECIALIST</div>
       </div>
 
-      <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 100, background: "linear-gradient(transparent,var(--bg))", pointerEvents: "none" }} />
+      <div className="pointer-events-none absolute right-0 bottom-0 left-0 h-[100px] bg-[linear-gradient(transparent,var(--bg))]" />
     </section>
   );
 }

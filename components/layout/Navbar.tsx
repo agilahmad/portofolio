@@ -20,6 +20,37 @@ export default function Navbar() {
     setIsLight(document.documentElement.dataset.theme === "light");
   }, []);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id?: string) => {
+    const targetY = id
+      ? (document.getElementById(id)?.getBoundingClientRect().top ?? NaN) + window.scrollY
+      : 0;
+    if (Number.isNaN(targetY)) return; // section tidak ada → biarkan perilaku default
+    e.preventDefault();
+    setMenuOpen(false);
+    history.replaceState(null, "", id ? `#${id}` : window.location.pathname);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      window.scrollTo({ top: targetY, behavior: "instant" });
+      return;
+    }
+    const startY = window.scrollY;
+    const dist = targetY - startY;
+    // durasi ikut jarak: sedikit lebih lambat dari native smooth, max 1.3s
+    const duration = Math.min(1300, 500 + Math.abs(dist) * 0.25);
+    const start = performance.now();
+    const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+    let cancelled = false;
+    const cancel = () => { cancelled = true; };
+    window.addEventListener("wheel", cancel, { once: true, passive: true });
+    window.addEventListener("touchstart", cancel, { once: true, passive: true });
+    const step = (now: number) => {
+      if (cancelled) return;
+      const t = Math.min(1, (now - start) / duration);
+      window.scrollTo({ top: startY + dist * ease(t), behavior: "instant" });
+      if (t < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
   const toggleTheme = () => {
     const next = !isLight;
     setIsLight(next);
@@ -28,75 +59,58 @@ export default function Navbar() {
     try { localStorage.setItem("theme", next ? "light" : "dark"); } catch {}
   };
 
-  const toggleBtnStyle: React.CSSProperties = {
-    fontSize: ".6rem", letterSpacing: ".12em", background: "transparent",
-    border: "1px solid var(--border)", color: "var(--text-muted)",
-    padding: ".3rem .65rem", cursor: "pointer", fontFamily: "inherit",
-    transition: "color .2s, border-color .2s",
-  };
+  const toggleBtnClass =
+    "cursor-pointer border border-border bg-transparent px-[.65rem] py-[.3rem] text-[.6rem] tracking-[.12em] text-muted transition-[color,border-color] duration-200 hover:border-purple-light hover:text-fg";
 
   return (
-    <nav style={{
-      position: "fixed", top: 0, width: "100%", zIndex: 100,
-      borderBottom: "1px solid var(--border)",
-      background: "rgba(var(--bg-rgb),0.94)", backdropFilter: "blur(14px)",
-    }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 1.25rem", display: "flex", alignItems: "center", justifyContent: "space-between", height: 58 }}>
+    <nav className="fixed top-0 z-[100] w-full border-b border-border bg-[rgba(var(--bg-rgb),0.94)] backdrop-blur-[14px]">
+      <div className="mx-auto flex h-[58px] max-w-[1200px] items-center justify-between px-5">
 
-        <a href="#" style={{ display: "flex", alignItems: "center", gap: ".7rem", textDecoration: "none" }}>
+        <a href="#" onClick={e => scrollToSection(e)} className="flex items-center gap-[.7rem] no-underline">
           <span className="dot" />
-          <span style={{ fontSize: ".7rem", letterSpacing: ".22em", textTransform: "uppercase", color: "var(--text)" }}>
-            AAM <span style={{ color: "var(--green)" }}>{"// ONLINE"}</span>
+          <span className="text-[.7rem] tracking-[.22em] text-fg uppercase">
+            <span className="hidden lg:inline">AGIL AHMAD MAULANA</span>
+            <span className="lg:hidden">AAM</span>
           </span>
         </a>
 
         <div className="nav-desktop">
-          {NAV_LINKS.map(s => <a key={s} href={`#${s}`} className="nav-link">{s}</a>)}
+          {NAV_LINKS.map(s => <a key={s} href={`#${s}`} className="nav-link" onClick={e => scrollToSection(e, s)}>{s}</a>)}
           <a
             href="/CV-Agilahmadmaulana.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-glow-green"
-            style={{ padding: ".35rem 1rem", fontSize: ".62rem" }}
+            className="btn btn-glow-green btn-sm"
           >
             {t.nav.resume} ↗
           </a>
           {/* language toggle */}
-          <button
-            onClick={() => setLang(lang === "en" ? "id" : "en")}
-            style={toggleBtnStyle}
-            onMouseEnter={e => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.borderColor = "var(--purple-light)"; }}
-            onMouseLeave={e => { e.currentTarget.style.color = "var(--text-muted)"; e.currentTarget.style.borderColor = "var(--border)"; }}
-          >
+          <button onClick={() => setLang(lang === "en" ? "id" : "en")} className={toggleBtnClass}>
             {lang === "en" ? "ID" : "EN"}
           </button>
           {/* theme toggle */}
           <button
             onClick={toggleTheme}
             aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
-            style={toggleBtnStyle}
-            onMouseEnter={e => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.borderColor = "var(--purple-light)"; }}
-            onMouseLeave={e => { e.currentTarget.style.color = "var(--text-muted)"; e.currentTarget.style.borderColor = "var(--border)"; }}
+            className={toggleBtnClass}
           >
             {isLight ? "☾" : "☀"}
           </button>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: ".75rem" }}>
+        <div className="flex items-center gap-3">
           {/* mobile theme toggle */}
           <button
             onClick={toggleTheme}
             aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
-            className="hamburger"
-            style={{ fontSize: ".6rem", color: "var(--text-muted)", width: "auto", minWidth: "unset", padding: ".3rem .6rem", border: "1px solid var(--border)", background: "transparent", fontFamily: "inherit" }}
+            className="hamburger hamburger-pill"
           >
             {isLight ? "☾" : "☀"}
           </button>
           {/* mobile lang toggle */}
           <button
             onClick={() => setLang(lang === "en" ? "id" : "en")}
-            className="hamburger"
-            style={{ fontSize: ".6rem", letterSpacing: ".1em", color: "var(--text-muted)", width: "auto", minWidth: "unset", padding: ".3rem .6rem", border: "1px solid var(--border)", background: "transparent", fontFamily: "inherit" }}
+            className="hamburger hamburger-pill"
           >
             {lang === "en" ? "ID" : "EN"}
           </button>
@@ -115,14 +129,14 @@ export default function Navbar() {
       <div className={`mobile-drawer${menuOpen ? " open" : ""}`}>
         <div className="mobile-drawer-inner">
           {NAV_LINKS.map(s => (
-            <a key={s} href={`#${s}`} onClick={() => setMenuOpen(false)}>{s}</a>
+            <a key={s} href={`#${s}`} onClick={e => scrollToSection(e, s)}>{s}</a>
           ))}
           <a
             href="/CV-Agilahmadmaulana.pdf"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMenuOpen(false)}
-            style={{ color: "var(--green)", borderColor: "rgba(57,255,20,.2)" }}
+            className="drawer-cta"
           >
             {t.nav.resume} ↗
           </a>

@@ -26,29 +26,28 @@ export default function Skills() {
     <section id="skills" className="sp" ref={ref}>
       <div className="sc">
         <p className="section-eyebrow">{s.eyebrow}</p>
-        <h2 className="section-title" style={{ marginBottom: "2.5rem" }}>{s.title}</h2>
+        <h2 className="section-title mb-10">{s.title}</h2>
 
         <div className="grid-skill-groups">
           {SKILL_GROUPS.map((group, i) => (
             <div
               key={group.cat}
-              className="panel"
+              className="panel px-[1.4rem] py-5"
               style={{
-                padding: "1.25rem 1.4rem",
                 opacity: visible ? 1 : 0,
                 transform: visible ? "translateY(0)" : "translateY(12px)",
                 transition: `opacity .4s ease ${i * 0.08}s, transform .4s ease ${i * 0.08}s`,
               }}
             >
-              <div style={{ fontSize: ".52rem", letterSpacing: ".22em", color: "var(--green)", textTransform: "uppercase", marginBottom: ".9rem", display: "flex", alignItems: "center", gap: ".5rem" }}>
-                <span className="dot" style={{ width: 4, height: 4, flexShrink: 0 }} />
+              <div className="mb-[.9rem] flex items-center gap-2 text-[.52rem] tracking-[.22em] text-green uppercase">
+                <span className="dot dot-xs" />
                 {group.cat}
               </div>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: ".45rem" }}>
+              <div className="flex flex-wrap gap-[.45rem]">
                 {group.skills.map(skill => (
                   <span key={skill} className="skill-chip" title={skill}>
                     {SKILL_ICONS[skill]
-                      ? <Image src={SKILL_ICONS[skill]} alt={skill} width={26} height={26} className={DARK_LOGOS.has(skill) ? "logo-invert-dark" : undefined} style={{ objectFit: "contain" }} />
+                      ? <Image src={SKILL_ICONS[skill]} alt={skill} width={26} height={26} className={`object-contain${DARK_LOGOS.has(skill) ? " logo-invert-dark" : ""}`} />
                       : skill}
                   </span>
                 ))}

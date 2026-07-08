@@ -11,16 +11,16 @@ export default function About() {
     <section id="about" className="sp">
       <div className="sc">
         <p className="section-eyebrow">{a.eyebrow}</p>
-        <h2 className="section-title" style={{ marginBottom: "2.5rem" }}>{a.title}</h2>
+        <h2 className="section-title mb-10">{a.title}</h2>
 
         <div className="about-outer">
 
           {/* photo */}
-          <div data-reveal style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: ".6rem" }}>
-            <div className="photo-frame" style={{ width: "100%", maxWidth: 280, height: 370 }}>
-              <Image src="/foto-about.webp" alt="Agil Ahmad Maulana" fill sizes="280px" style={{ objectFit: "cover", objectPosition: "center top" }} />
+          <div data-reveal className="flex flex-col items-center gap-[.6rem]">
+            <div className="photo-frame h-[370px] w-full max-w-[280px]">
+              <Image src="/foto-about.webp" alt="Agil Ahmad Maulana" fill sizes="280px" className="object-cover object-top" />
               <div className="photo-color-reveal">
-                <Image src="/foto-about.webp" alt="" fill sizes="280px" style={{ objectFit: "cover", objectPosition: "center top" }} aria-hidden />
+                <Image src="/foto-about.webp" alt="" fill sizes="280px" className="object-cover object-top" aria-hidden />
               </div>
               <div className="photo-corner-tr" />
               <div className="photo-corner-bl" />
@@ -28,36 +28,36 @@ export default function About() {
               <div className="photo-overlay" />
               <div className="photo-label">{a.photoLabel}</div>
             </div>
-            <div style={{ width: "100%", maxWidth: 280, border: "1px solid var(--border)", padding: ".6rem 1rem", background: "var(--surface)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div className="flex w-full max-w-[280px] items-center justify-between border border-border bg-surface px-4 py-[.6rem]">
               <div>
-                <div style={{ fontSize: ".52rem", letterSpacing: ".18em", color: "var(--green)", textTransform: "uppercase", marginBottom: ".15rem" }}>{a.clearanceLabel}</div>
-                <div style={{ fontSize: ".72rem", letterSpacing: ".06em", color: "var(--text)", textTransform: "uppercase" }}>{a.clearanceVal}</div>
+                <div className="mb-[.15rem] text-[.52rem] tracking-[.18em] text-green uppercase">{a.clearanceLabel}</div>
+                <div className="text-[.72rem] tracking-[.06em] text-fg uppercase">{a.clearanceVal}</div>
               </div>
-              <div style={{ textAlign: "right" }}>
-                <div style={{ fontSize: ".52rem", letterSpacing: ".1em", color: "var(--text-muted)" }}>N-AAM-001</div>
-                <div style={{ display: "flex", alignItems: "center", gap: ".35rem", justifyContent: "flex-end", marginTop: ".2rem" }}>
-                  <span className="dot" style={{ width: 5, height: 5 }} />
-                  <span style={{ fontSize: ".48rem", color: "var(--green)", letterSpacing: ".1em" }}>{a.activeLabel}</span>
+              <div className="text-right">
+                <div className="text-[.52rem] tracking-[.1em] text-muted">N-AAM-001</div>
+                <div className="mt-[.2rem] flex items-center justify-end gap-[.35rem]">
+                  <span className="dot dot-sm" />
+                  <span className="text-[.48rem] tracking-[.1em] text-green">{a.activeLabel}</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* bio */}
-          <div data-reveal className="panel panel-top-bar" style={{ padding: "1.75rem", transitionDelay: ".1s" }}>
-            <div style={{ fontSize: ".58rem", letterSpacing: ".2em", color: "var(--green)", marginBottom: "1.25rem" }}>{a.summaryLabel}</div>
-            <p style={{ color: "var(--text-muted)", lineHeight: 1.85, fontSize: ".85rem", marginBottom: "1.2rem" }}>{a.bio[0]}</p>
-            <p style={{ color: "var(--text-muted)", lineHeight: 1.85, fontSize: ".85rem" }}>{a.bio[1]}</p>
+          <div data-reveal className="panel panel-top-bar reveal-delay-1 p-7">
+            <div className="mb-5 text-[.58rem] tracking-[.2em] text-green">{a.summaryLabel}</div>
+            <p className="mb-[1.2rem] text-[.85rem] leading-[1.85] text-muted">{a.bio[0]}</p>
+            <p className="text-[.85rem] leading-[1.85] text-muted">{a.bio[1]}</p>
           </div>
 
           {/* info */}
-          <div data-reveal style={{ transitionDelay: ".2s" }}>
+          <div data-reveal className="reveal-delay-2">
             {a.info.map(item => (
-              <div key={item.label} style={{ display: "flex", gap: "1rem", padding: ".65rem 0", borderBottom: "1px solid rgba(123,47,190,.12)", alignItems: "flex-start" }}>
-                <span style={{ fontSize: ".52rem", letterSpacing: ".18em", color: "var(--green)", textTransform: "uppercase", minWidth: 72, paddingTop: ".1rem", flexShrink: 0 }}>
+              <div key={item.label} className="flex items-start gap-4 border-b border-[rgba(123,47,190,.12)] py-[.65rem]">
+                <span className="min-w-[72px] shrink-0 pt-[.1rem] text-[.52rem] tracking-[.18em] text-green uppercase">
                   {item.label}
                 </span>
-                <span style={{ fontSize: ".8rem", color: "var(--text)", wordBreak: "break-all" }}>{item.val}</span>
+                <span className="text-[.8rem] break-all text-fg">{item.val}</span>
               </div>
             ))}
           </div>

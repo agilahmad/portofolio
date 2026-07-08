@@ -6,13 +6,11 @@ const en = {
     unitLabel: "// UNIT DESIGNATION",
     roles: ["Backend Developer", "Fullstack Developer"],
     taglineParts: [
-      "Specializing in ",
-      "Laravel & PostgreSQL",
-      " — building ",
-      "secure, maintainable web applications",
-      " and ",
-      "internal management systems",
-      " end-to-end.",
+      "I build the systems teams rely on — ",
+      "secure ticketing, asset, and incident-management platforms",
+      ", engineered ",
+      "end-to-end",
+      ".",
     ],
     stats: [
       { label: "SYNC SYSTEM", val: "ACTIVE",   green: true  },
@@ -54,7 +52,7 @@ const en = {
     title: "EXPERIENCE",
     internship: {
       period: "NOV 2025 – MAY 2026",
-      badge: "ACTIVE",
+      badge: "COMPLETED",
       role: "Programmer Intern",
       org: "Pusat TIK — Mahkamah Konstitusi RI, Jakarta",
       items: [
@@ -177,13 +175,11 @@ const id: typeof en = {
     unitLabel: "// IDENTIFIKASI UNIT",
     roles: ["Backend Developer", "Fullstack Developer"],
     taglineParts: [
-      "Spesialisasi dalam ",
-      "Laravel & PostgreSQL",
-      " — membangun ",
-      "aplikasi web yang aman",
-      " serta ",
-      "sistem manajemen internal",
-      " dari hulu ke hilir.",
+      "Saya membangun sistem yang diandalkan tim — ",
+      "platform ticketing, aset, dan incident management yang aman",
+      ", dikerjakan ",
+      "dari hulu ke hilir",
+      ".",
     ],
     stats: [
       { label: "STATUS SISTEM", val: "AKTIF",    green: true  },
@@ -225,7 +221,7 @@ const id: typeof en = {
     title: "PENGALAMAN",
     internship: {
       period: "NOV 2025 – MEI 2026",
-      badge: "AKTIF",
+      badge: "SELESAI",
       role: "Programmer Magang",
       org: "Pusat TIK — Mahkamah Konstitusi RI, Jakarta",
       items: [

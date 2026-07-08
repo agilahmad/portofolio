@@ -13,9 +13,9 @@ export function HeroTypewriter() {
   useEffect(() => { setMounted(true); }, []);
 
   return (
-    <span style={{ fontSize: "clamp(.85rem,2.5vw,1.05rem)", letterSpacing: ".1em", color: "var(--text-muted)" }}>
+    <span className="text-[clamp(.85rem,2.5vw,1.05rem)] tracking-[.1em] text-muted">
       {mounted ? role : t.hero.roles[0]}
-      <span style={{ color: "var(--green)", animation: "blink 1s infinite" }}>█</span>
+      <span className="animate-[blink_1s_infinite] text-green">█</span>
     </span>
   );
 }
@@ -23,11 +23,11 @@ export function HeroTypewriter() {
 export function HeroTagline() {
   const { t } = useLanguage();
   return (
-    <p style={{ fontSize: ".82rem", color: "var(--text-muted)", lineHeight: 1.8, maxWidth: 480, marginBottom: "2.5rem" }}>
+    <p className="mb-10 max-w-[480px] text-[.82rem] leading-[1.8] text-muted">
       {t.hero.taglineParts.map((part, i) =>
         i % 2 === 0
           ? <span key={i}>{part}</span>
-          : <span key={i} style={{ color: "var(--text)" }}>{part}</span>
+          : <span key={i} className="text-fg">{part}</span>
       )}
     </p>
   );
@@ -38,12 +38,12 @@ export function HeroStats() {
   return (
     <div className="hero-stats">
       {t.hero.stats.map(s => (
-        <div key={s.label} style={{ border: "1px solid var(--border)", padding: ".65rem .9rem", background: "rgba(var(--surface-rgb),.85)" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: ".4rem", marginBottom: ".45rem" }}>
-            <span className={`dot${s.green ? "" : " dot-purple"}`} style={{ width: 5, height: 5 }} />
-            <span style={{ fontSize: ".5rem", letterSpacing: ".18em", color: "var(--text-muted)", textTransform: "uppercase" }}>{s.label}</span>
+        <div key={s.label} className="border border-border bg-[rgba(var(--surface-rgb),.85)] px-[.9rem] py-[.65rem]">
+          <div className="mb-[.45rem] flex items-center gap-[.4rem]">
+            <span className={`dot dot-sm${s.green ? "" : " dot-purple"}`} />
+            <span className="text-[.5rem] tracking-[.18em] text-muted uppercase">{s.label}</span>
           </div>
-          <div style={{ fontSize: ".85rem", fontWeight: 700, letterSpacing: ".1em", ...(s.green ? { color: "var(--green)", textShadow: "0 0 8px var(--green)" } : { color: "var(--text)" }) }}>
+          <div className={`text-[.85rem] font-bold tracking-[.1em] ${s.green ? "text-green [text-shadow:0_0_8px_var(--green)]" : "text-fg"}`}>
             {s.val}
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
-import { PROJECT_META } from "@/lib/data";
+import Image from "next/image";
+import { PROJECT_META, SKILL_ICONS, DARK_LOGOS } from "@/lib/data";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Projects() {
@@ -12,7 +13,7 @@ export default function Projects() {
       <div className="sc">
         <p className="section-eyebrow">{p.eyebrow}</p>
         <div className="pj-frame">
-          <h2 className="pj-title">{p.title}</h2>
+          <h2 className="section-title mb-7">{p.title}</h2>
           <div className="pj-grid">
             {PROJECT_META.map((meta, idx) => {
               const item = p.items[meta.id as keyof typeof p.items];
@@ -44,7 +45,19 @@ export default function Projects() {
                   </ul>
 
                   <div className="pj-tags">
-                    {meta.tags.map(tg => <span key={tg} className="pj-tag">{tg}</span>)}
+                    {meta.tags.map(tg => (
+                      <span key={tg} className="pj-tag" title={tg}>
+                        {SKILL_ICONS[tg]
+                          ? <Image
+                              src={SKILL_ICONS[tg]}
+                              alt={tg}
+                              width={16}
+                              height={16}
+                              className={`object-contain${DARK_LOGOS.has(tg) ? " logo-invert-dark" : ""}`}
+                            />
+                          : tg}
+                      </span>
+                    ))}
                   </div>
 
                   <div className="pj-foot">

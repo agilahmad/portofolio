@@ -10,28 +10,28 @@ export default function Experience() {
     <section id="experience" className="sp">
       <div className="sc">
         <p className="section-eyebrow">{e.eyebrow}</p>
-        <h2 className="section-title" style={{ marginBottom: "2.5rem" }}>{e.title}</h2>
+        <h2 className="section-title mb-10">{e.title}</h2>
 
         <div className="grid-exp">
 
           {/* timeline */}
-          <div style={{ position: "relative", paddingLeft: "1.75rem" }}>
+          <div className="relative pl-7">
             <div className="timeline-line" />
 
             {/* internship */}
-            <div data-reveal style={{ position: "relative", marginBottom: "2rem" }}>
+            <div data-reveal className="relative mb-8">
               <div className="timeline-dot" />
-              <div className="panel panel-top-green" style={{ padding: "1.4rem", marginLeft: ".6rem" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: ".3rem", marginBottom: ".5rem" }}>
-                  <span style={{ fontSize: ".58rem", letterSpacing: ".16em", color: "var(--green)", textTransform: "uppercase" }}>{e.internship.period}</span>
-                  <span className="tag tag-green" style={{ fontSize: ".48rem" }}>{e.internship.badge}</span>
+              <div className="panel panel-top-green ml-[.6rem] p-[1.4rem]">
+                <div className="mb-2 flex flex-wrap justify-between gap-[.3rem]">
+                  <span className="text-[.58rem] tracking-[.16em] text-green uppercase">{e.internship.period}</span>
+                  <span className="tag tag-sm">{e.internship.badge}</span>
                 </div>
-                <h3 style={{ fontSize: ".88rem", letterSpacing: ".05em", textTransform: "uppercase", marginBottom: ".2rem" }}>{e.internship.role}</h3>
-                <div style={{ fontSize: ".7rem", color: "var(--purple-light)", marginBottom: ".9rem" }}>{e.internship.org}</div>
-                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: ".45rem" }}>
+                <h3 className="mb-[.2rem] text-[.88rem] tracking-[.05em] uppercase">{e.internship.role}</h3>
+                <div className="mb-[.9rem] text-[.7rem] text-purple-light">{e.internship.org}</div>
+                <ul className="flex list-none flex-col gap-[.45rem]">
                   {e.internship.items.map((item, i) => (
-                    <li key={i} style={{ display: "flex", gap: ".6rem", color: "var(--text-muted)", fontSize: ".77rem", lineHeight: 1.6 }}>
-                      <span style={{ color: "var(--green)", flexShrink: 0 }}>›</span>{item}
+                    <li key={i} className="flex gap-[.6rem] text-[.77rem] leading-[1.6] text-muted">
+                      <span className="shrink-0 text-green">›</span>{item}
                     </li>
                   ))}
                 </ul>
@@ -39,19 +39,19 @@ export default function Experience() {
             </div>
 
             {/* training */}
-            <div data-reveal style={{ position: "relative", transitionDelay: ".1s" }}>
+            <div data-reveal className="reveal-delay-1 relative">
               <div className="timeline-dot timeline-dot-purple" />
-              <div className="panel" style={{ padding: "1.4rem", marginLeft: ".6rem" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: ".3rem", marginBottom: ".5rem" }}>
-                  <span style={{ fontSize: ".58rem", letterSpacing: ".16em", color: "var(--purple-light)", textTransform: "uppercase" }}>{e.training.period}</span>
-                  <span className="tag" style={{ fontSize: ".48rem" }}>{e.training.badge}</span>
+              <div className="panel ml-[.6rem] p-[1.4rem]">
+                <div className="mb-2 flex flex-wrap justify-between gap-[.3rem]">
+                  <span className="text-[.58rem] tracking-[.16em] text-purple-light uppercase">{e.training.period}</span>
+                  <span className="tag tag-sm">{e.training.badge}</span>
                 </div>
-                <h3 style={{ fontSize: ".88rem", letterSpacing: ".05em", textTransform: "uppercase", marginBottom: ".2rem" }}>{e.training.role}</h3>
-                <div style={{ fontSize: ".7rem", color: "var(--purple-light)", marginBottom: ".9rem" }}>{e.training.org}</div>
-                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: ".45rem" }}>
+                <h3 className="mb-[.2rem] text-[.88rem] tracking-[.05em] uppercase">{e.training.role}</h3>
+                <div className="mb-[.9rem] text-[.7rem] text-purple-light">{e.training.org}</div>
+                <ul className="flex list-none flex-col gap-[.45rem]">
                   {e.training.items.map((item, i) => (
-                    <li key={i} style={{ display: "flex", gap: ".6rem", color: "var(--text-muted)", fontSize: ".77rem", lineHeight: 1.6 }}>
-                      <span style={{ color: "var(--purple-light)", flexShrink: 0 }}>›</span>{item}
+                    <li key={i} className="flex gap-[.6rem] text-[.77rem] leading-[1.6] text-muted">
+                      <span className="shrink-0 text-purple-light">›</span>{item}
                     </li>
                   ))}
                 </ul>
@@ -60,40 +60,40 @@ export default function Experience() {
           </div>
 
           {/* right column */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+          <div className="flex flex-col gap-5">
 
-            <div data-reveal className="panel panel-top-purple" style={{ padding: "1.4rem" }}>
-              <div style={{ fontSize: ".56rem", letterSpacing: ".2em", color: "var(--green)", marginBottom: ".9rem" }}>{e.educationLabel}</div>
-              <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: ".3rem", marginBottom: ".4rem" }}>
-                <span style={{ fontSize: ".58rem", letterSpacing: ".12em", color: "var(--text-muted)", textTransform: "uppercase" }}>{e.education.period}</span>
-                <span style={{ fontSize: ".65rem", color: "var(--green)" }}>{e.education.gpa}</span>
+            <div data-reveal className="panel panel-top-purple p-[1.4rem]">
+              <div className="mb-[.9rem] text-[.56rem] tracking-[.2em] text-green">{e.educationLabel}</div>
+              <div className="mb-[.4rem] flex flex-wrap justify-between gap-[.3rem]">
+                <span className="text-[.58rem] tracking-[.12em] text-muted uppercase">{e.education.period}</span>
+                <span className="text-[.65rem] text-green">{e.education.gpa}</span>
               </div>
-              <h3 style={{ fontSize: ".86rem", textTransform: "uppercase", letterSpacing: ".05em", marginBottom: ".2rem" }}>{e.education.degree}</h3>
-              <div style={{ fontSize: ".7rem", color: "var(--purple-light)", marginBottom: ".85rem" }}>{e.education.university}</div>
-              <div style={{ fontSize: ".7rem", color: "var(--text-muted)", lineHeight: 1.6, padding: ".7rem", background: "rgba(123,47,190,.06)", border: "1px solid rgba(123,47,190,.15)" }}>
+              <h3 className="mb-[.2rem] text-[.86rem] tracking-[.05em] uppercase">{e.education.degree}</h3>
+              <div className="mb-[.85rem] text-[.7rem] text-purple-light">{e.education.university}</div>
+              <div className="border border-[rgba(123,47,190,.15)] bg-[rgba(123,47,190,.06)] p-[.7rem] text-[.7rem] leading-[1.6] text-muted">
                 {e.education.thesis}
               </div>
             </div>
 
-            <div data-reveal className="panel panel-top-green" style={{ padding: "1.4rem", transitionDelay: ".1s" }}>
-              <div style={{ fontSize: ".56rem", letterSpacing: ".2em", color: "var(--green)", marginBottom: ".9rem" }}>{e.certificationLabel}</div>
-              <div style={{ display: "flex", alignItems: "center", gap: ".9rem", padding: ".7rem", border: "1px solid var(--border)" }}>
-                <div style={{ width: 36, height: 36, background: "rgba(123,47,190,.2)", border: "1px solid var(--purple)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: ".95rem", color: "var(--purple-light)" }}>◈</div>
+            <div data-reveal className="panel panel-top-green reveal-delay-1 p-[1.4rem]">
+              <div className="mb-[.9rem] text-[.56rem] tracking-[.2em] text-green">{e.certificationLabel}</div>
+              <div className="flex items-center gap-[.9rem] border border-border p-[.7rem]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-purple bg-[rgba(123,47,190,.2)] text-[.95rem] text-purple-light">◈</div>
                 <div>
-                  <div style={{ fontSize: ".78rem", letterSpacing: ".04em", textTransform: "uppercase", marginBottom: ".2rem" }}>{e.certification.name}</div>
-                  <div style={{ display: "flex", gap: ".75rem", flexWrap: "wrap" }}>
-                    <span style={{ fontSize: ".6rem", color: "var(--purple-light)" }}>{e.certification.issuer}</span>
-                    <span style={{ fontSize: ".6rem", color: "var(--text-muted)" }}>{e.certification.date}</span>
+                  <div className="mb-[.2rem] text-[.78rem] tracking-[.04em] uppercase">{e.certification.name}</div>
+                  <div className="flex flex-wrap gap-3">
+                    <span className="text-[.6rem] text-purple-light">{e.certification.issuer}</span>
+                    <span className="text-[.6rem] text-muted">{e.certification.date}</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div data-reveal className="grid-stats" style={{ transitionDelay: ".2s" }}>
+            <div data-reveal className="grid-stats reveal-delay-2">
               {e.stats.map(s => (
-                <div key={s.label} className="panel" style={{ padding: "1rem", textAlign: "center" }}>
-                  <div style={{ fontSize: "1.4rem", fontWeight: 900, color: "var(--green)", textShadow: "0 0 12px rgba(57,255,20,.4)", letterSpacing: ".04em" }}>{s.val}</div>
-                  <div style={{ fontSize: ".52rem", color: "var(--text-muted)", letterSpacing: ".12em", textTransform: "uppercase", marginTop: ".2rem" }}>{s.label}</div>
+                <div key={s.label} className="panel p-4 text-center">
+                  <div className="text-[1.4rem] font-black tracking-[.04em] text-green [text-shadow:0_0_12px_rgba(57,255,20,.4)]">{s.val}</div>
+                  <div className="mt-[.2rem] text-[.52rem] tracking-[.12em] text-muted uppercase">{s.label}</div>
                 </div>
               ))}
             </div>

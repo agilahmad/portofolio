@@ -57,7 +57,7 @@ export const PROJECT_META: ProjectMeta[] = [
   { id: "N-BR-01", tags: ["Laravel", "PostgreSQL", "RBAC", "DataTables"], status: "DEPLOYED",  year: "2026", url: "https://csirt.mkri.id/", github: "https://github.com/agilahmad/landing-csirt" },
   { id: "N-BR-02", tags: ["Laravel", "PostgreSQL", "CSR Pattern"],        status: "DEPLOYED",  year: "2026", github: "https://github.com/agilahmad/ticketing-pentest" },
   { id: "N-BR-03", tags: ["Laravel", "MySQL", "RoP Algorithm"],           status: "COMPLETED", year: "2025", github: "https://github.com/agilahmad/manajemen-obat" },
-  { id: "N-BR-04", tags: ["Laravel", "NestJS", "PostgreSQL"],             status: "DEPLOYED",  year: "2026" },
+  { id: "N-BR-04", tags: ["Next.js", "NestJS", "PostgreSQL"],             status: "DEPLOYED",  year: "2026" },
   { id: "N-BR-05", tags: ["Laravel", "MySQL", "Auth"],                    status: "COMPLETED", year: "2024" },
   { id: "N-BR-06", tags: ["PHP", "PostgreSQL", "Automation"],             status: "DEPLOYED",  year: "2026" },
 ];

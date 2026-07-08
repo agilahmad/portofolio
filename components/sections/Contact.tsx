@@ -21,31 +21,30 @@ export default function Contact() {
 
   return (
     <section id="contact" className="sp">
-      <div data-reveal style={{ maxWidth: 560, margin: "0 auto", padding: "0 1.25rem", textAlign: "center" }}>
+      <div data-reveal className="mx-auto max-w-[560px] px-5 text-center">
 
-        <p className="section-eyebrow" style={{ display: "flex", justifyContent: "center" }}>{c.eyebrow}</p>
-        <h2 className="section-title" style={{ marginBottom: ".75rem" }}>{c.title}</h2>
-        <p style={{ color: "var(--text-muted)", fontSize: ".8rem", marginBottom: "2.5rem", letterSpacing: ".05em" }}>{c.subtitle}</p>
+        <p className="section-eyebrow flex justify-center">{c.eyebrow}</p>
+        <h2 className="section-title mb-3">{c.title}</h2>
+        <p className="mb-10 text-[.8rem] tracking-[.05em] text-muted">{c.subtitle}</p>
 
         <a
           href={`mailto:${CONTACT.email}`}
-          style={{ display: "block", color: "var(--text)", textDecoration: "none", fontSize: "clamp(.8rem,2.5vw,1rem)", letterSpacing: ".06em", marginBottom: "2rem", transition: "color .2s" }}
-          className="contact-email-link"
+          className="contact-email-link mb-8 block text-[clamp(.8rem,2.5vw,1rem)] tracking-[.06em] text-fg no-underline transition-[color] duration-200"
         >
           {CONTACT.email}
         </a>
 
-        <a href={`mailto:${CONTACT.email}`} className="btn btn-outline-green" style={{ marginBottom: "2.5rem" }}>
+        <a href={`mailto:${CONTACT.email}`} className="btn btn-outline-green mb-10">
           {c.cta}
         </a>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "2rem" }}>
-          <div style={{ flex: 1, height: 1, background: "rgba(123,47,190,.2)" }} />
-          <span style={{ fontSize: ".5rem", letterSpacing: ".2em", color: "var(--text-muted)" }}>{c.orLabel}</span>
-          <div style={{ flex: 1, height: 1, background: "rgba(123,47,190,.2)" }} />
+        <div className="mb-8 flex items-center gap-4">
+          <div className="h-px flex-1 bg-[rgba(123,47,190,.2)]" />
+          <span className="text-[.5rem] tracking-[.2em] text-muted">{c.orLabel}</span>
+          <div className="h-px flex-1 bg-[rgba(123,47,190,.2)]" />
         </div>
 
-        <div style={{ display: "flex", justifyContent: "center", gap: "1.25rem" }}>
+        <div className="flex justify-center gap-5">
           <a href={CONTACT.github} target="_blank" rel="noopener noreferrer" className="social-icon-btn" aria-label="GitHub">
             <GithubIcon />
             <span>GitHub</span>

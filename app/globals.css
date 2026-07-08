@@ -20,11 +20,12 @@
 
 /* ─── LIGHT MODE (opt-in via theme toggle) ─── */
 :root[data-theme="light"] {
-  --bg:           #f5f4fa;
-  --bg-rgb:       245, 244, 250;
+  /* latar netral #EFEFEF — disampel dari referensi NERV/EVA-01 */
+  --bg:           #efefef;
+  --bg-rgb:       239, 239, 239;
   --surface:      #ffffff;
   --surface-rgb:  255, 255, 255;
-  --surface-2:    #ecebf4;
+  --surface-2:    #e4e4e4;
   --purple:       #7b2fbe;
   --purple-light: #7c3aed;
   --purple-dark:  #4a1a7a;
@@ -58,8 +59,8 @@
 /* black monochrome logos (Next.js, GitHub) → white in dark mode */
 :root:not([data-theme="light"]) .logo-invert-dark { filter: invert(1); }
 
-/* ─── RESET & BASE ─── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ─── BASE (reset ditangani preflight Tailwind — jangan tambah reset unlayered,
+   CSS tanpa layer mengalahkan utility) ─── */
 html { scroll-behavior: smooth; }
 
 body {
@@ -78,7 +79,6 @@ body {
 /* buttons/links that already have clear hover state can use subtler focus */
 .btn:focus-visible,
 .nav-link:focus-visible,
-.contact-row:focus-visible,
 .social-icon-btn:focus-visible {
   outline: 2px solid var(--green);
   outline-offset: 4px;
@@ -137,9 +137,14 @@ body::after {
     linear-gradient(90deg, rgba(123,47,190,.04) 1px, transparent 1px);
   background-size: 50px 50px;
 }
-
-.section-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-.section-pad       { padding: 6rem 2rem; }
+/* light mode: netral seperti referensi EVA — grid abu, tanpa glow ungu */
+:root[data-theme="light"] .grid-bg {
+  background-image:
+    linear-gradient(rgba(0,0,0,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,.05) 1px, transparent 1px);
+}
+:root       { --hero-glow-purple: rgba(123,47,190,.12); --hero-glow-green: rgba(57,255,20,.05); }
+:root[data-theme="light"] { --hero-glow-purple: transparent; --hero-glow-green: transparent; }
 
 /* ─── TYPOGRAPHY ─── */
 .section-eyebrow {
@@ -194,6 +199,8 @@ body::after {
   flex-shrink: 0;
 }
 .dot-purple { background: var(--purple-light); box-shadow: 0 0 6px var(--purple-light); }
+.dot-sm     { width: 5px; height: 5px; }
+.dot-xs     { width: 4px; height: 4px; }
 
 /* ─── PANELS ─── */
 .panel {
@@ -215,20 +222,6 @@ body::after {
   background: linear-gradient(90deg, var(--purple), transparent);
 }
 
-/* ─── SKILL BARS ─── */
-.progress-track {
-  background: rgba(255,255,255,.05);
-  height: 2px;
-  width: 100%;
-  margin-top: .3rem;
-}
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--purple-light), var(--green));
-  box-shadow: 0 0 6px var(--green);
-  transition: width 1.3s cubic-bezier(.4,0,.2,1);
-}
-
 /* ─── TECH TAGS ─── */
 .tag {
   font-size: .6rem;
@@ -243,6 +236,7 @@ body::after {
   border-color: rgba(57,255,20,.4);
   color: var(--green);
 }
+.tag-sm { font-size: .48rem; }
 
 /* ─── BUTTONS ─── */
 .btn {
@@ -288,6 +282,7 @@ body::after {
   background: rgba(123,47,190,.25);
   box-shadow: 0 0 20px rgba(123,47,190,.4);
 }
+.btn-sm { padding: .35rem 1rem; font-size: .62rem; }
 
 /* ─── DIVIDER ─── */
 .divider {
@@ -332,7 +327,6 @@ body::after {
   --pj-link:        var(--green);
   --pj-year:        var(--text-muted);
   --pj-divider:     rgba(123,47,190,.25);
-  background: repeating-linear-gradient(transparent 0 27px, rgba(123,47,190,.05) 27px 28px);
 }
 :root[data-theme="light"] #projects {
   --pj-frame:       #d8d3c6;
@@ -349,22 +343,12 @@ body::after {
   --pj-link:        #1f8a4c;
   --pj-year:        #a39c8a;
   --pj-divider:     #e4dfd2;
-  /* base transparan = ikut warna latar utama situs, hanya garis grid yang digambar */
-  background: repeating-linear-gradient(transparent 0 27px, rgba(123,47,190,.08) 27px 28px);
 }
 
 .pj-frame {
   border: 1px solid var(--pj-frame);
   border-radius: 6px;
   padding: 40px 48px 32px;
-}
-.pj-title {
-  font-family: var(--font-space-grotesk), sans-serif;
-  font-weight: 700;
-  font-size: 40px;
-  letter-spacing: -0.01em;
-  color: var(--pj-heading);
-  margin-bottom: 28px;
 }
 .pj-grid {
   display: grid;
@@ -424,8 +408,12 @@ body::after {
   line-height: 1.55;
   color: var(--pj-bullet);
 }
-.pj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+/* margin-top:auto menempelkan baris tech stack ke bawah kartu → posisinya sama antar project */
+.pj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
 .pj-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   font-family: var(--font-jetbrains-mono), monospace;
   font-weight: 600;
   font-size: 10px;
@@ -438,7 +426,6 @@ body::after {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: auto;
   padding-top: 9px;
   border-top: 1px dashed var(--pj-divider);
 }
@@ -461,7 +448,6 @@ body::after {
 }
 @media (max-width: 640px) {
   .pj-frame { padding: 24px 18px 20px; }
-  .pj-title { font-size: 32px; }
 }
 
 /* ─── TIMELINE ─── */
@@ -484,31 +470,6 @@ body::after {
   background: var(--purple-light);
   box-shadow: 0 0 8px var(--purple-light);
 }
-
-/* ─── CONTACT CARDS ─── */
-.contact-card {
-  border: 1px solid var(--border);
-  background: var(--surface);
-  transition: border-color .25s, box-shadow .25s;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-.contact-card:hover {
-  border-color: var(--green);
-  box-shadow: 0 0 16px rgba(57,255,20,.15);
-}
-.contact-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 1.5rem;
-  text-decoration: none;
-  color: inherit;
-  gap: 1rem;
-  transition: background .2s;
-}
-.contact-row:hover { background: rgba(123,47,190,.06); }
 
 .contact-email-link:hover { color: var(--green); }
 
@@ -550,6 +511,17 @@ body::after {
   min-width: 44px;
   min-height: 44px;
   align-items: center;
+}
+/* pill toggle tema/bahasa — menumpang .hamburger untuk tap-target & auto-hide desktop */
+.hamburger-pill {
+  width: auto;
+  min-width: unset;
+  padding: .3rem .6rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  font-size: .6rem;
+  letter-spacing: .1em;
+  color: var(--text-muted);
 }
 .hamburger-bar {
   width: 22px;
@@ -598,6 +570,7 @@ body::after {
 }
 .mobile-drawer a:last-child { border-bottom: none; }
 .mobile-drawer a:hover, .mobile-drawer a:active { color: var(--green); padding-left: .5rem; }
+.mobile-drawer a.drawer-cta { color: var(--green); }
 
 /* ─── HERO CORNER (hide below 1024px) ─── */
 .hero-corner {
@@ -638,21 +611,12 @@ body::after {
 @media (min-width: 768px) { .sp { padding: 6rem 2rem; } }
 
 /* ─── RESPONSIVE GRIDS ─── */
-.grid-about    { display: grid; grid-template-columns: 1fr;               gap: 2rem;  }
-.grid-skills        { display: grid; grid-template-columns: 1fr;     gap: 0;      }
 .grid-skill-groups  { display: grid; grid-template-columns: 1fr; gap: 1rem;       }
 .skill-chip         { display: inline-flex; align-items: center; gap: .4rem; font-size: .68rem; letter-spacing: .08em; color: var(--text); background: rgba(123,47,190,.08); border: 1px solid rgba(123,47,190,.25); padding: .25rem .7rem; text-transform: uppercase; }
-.skill-chip-learning{ color: var(--purple-light); background: rgba(157,78,221,.06); border-color: rgba(157,78,221,.3); }
 .grid-exp      { display: grid; grid-template-columns: 1fr;               gap: 2rem;  }
-.grid-contact  { display: grid; grid-template-columns: repeat(2,1fr);     gap: 1rem;  }
 .grid-stats    { display: grid; grid-template-columns: repeat(2,1fr);     gap: 1rem;  }
 
-@media (min-width: 640px) {
-  .grid-about    { grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); }
-  .grid-contact  { grid-template-columns: repeat(4,1fr); }
-}
 @media (min-width: 768px) {
-  .grid-skills        { grid-template-columns: 1fr 1fr; gap: 3rem; }
   .grid-skill-groups  { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 }
 @media (min-width: 900px) {
@@ -818,7 +782,6 @@ body::after {
 
 /* ─── TOUCH: DISABLE HOVER TRANSFORMS ─── */
 @media (hover: none) {
-  .contact-card:hover  { border-color: var(--border) !important; box-shadow: none !important; }
   .btn:hover           { transform: none; }
   .nav-link::after     { display: none; }
 }
@@ -833,6 +796,9 @@ body::after {
   opacity: 1;
   transform: none;
 }
+/* stagger statis — delay dinamis (mis. per-index) tetap inline di komponen */
+[data-reveal].reveal-delay-1 { transition-delay: .1s; }
+[data-reveal].reveal-delay-2 { transition-delay: .2s; }
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { transition: none; }
 }
