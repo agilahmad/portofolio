@@ -14,14 +14,12 @@ export interface SkillGroup {
 }
 
 export const SKILL_GROUPS: SkillGroup[] = [
-  { cat: "Backend",      skills: ["PHP", "Laravel", "NestJS", "REST API", "RBAC", "Server-side DataTables"] },
-  { cat: "Database",     skills: ["PostgreSQL", "MySQL"] },
-  { cat: "Frontend",     skills: ["JavaScript", "Next.js", "Tailwind CSS"] },
+  { cat: "Backend",      skills: ["PHP", "Laravel", "NestJS", "Go", "Python", "REST API", "RBAC", "Server-side DataTables"] },
+  { cat: "Database",     skills: ["PostgreSQL", "MySQL", "MongoDB"] },
+  { cat: "Frontend",     skills: ["HTML5", "CSS3", "JavaScript", "Next.js", "Tailwind CSS"] },
   { cat: "Architecture", skills: ["Clean Architecture", "CSR Pattern", "Multi-role Access Control"] },
   { cat: "Tools",        skills: ["Git", "GitHub", "GitLab", "Postman"] },
 ];
-
-export const LEARNING = ["Go", "Python"];
 
 export const SKILL_ICONS: Record<string, string> = {
   "PHP":          "/logos/php.png",
@@ -29,6 +27,9 @@ export const SKILL_ICONS: Record<string, string> = {
   "NestJS":       "/logos/nestjs.png",
   "PostgreSQL":   "/logos/postgresql.png",
   "MySQL":        "/logos/mysql.png",
+  "MongoDB":      "/logos/mongodb.png",
+  "HTML5":        "/logos/html5.png",
+  "CSS3":         "/logos/css3.png",
   "JavaScript":   "/logos/javascript.png",
   "Next.js":      "/logos/nextjs.png",
   "Tailwind CSS": "/logos/tailwindcss.png",
@@ -39,6 +40,9 @@ export const SKILL_ICONS: Record<string, string> = {
   "Go":           "/logos/go.png",
   "Python":       "/logos/python.png",
 };
+
+/* black monochrome logos — inverted to white in dark mode via .logo-invert-dark */
+export const DARK_LOGOS = new Set(["Next.js", "GitHub"]);
 
 export interface ProjectMeta {
   id: string;

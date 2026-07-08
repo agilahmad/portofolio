@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Orbitron } from "next/font/google";
+import { Geist_Mono, Orbitron, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import { cookies } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -13,6 +13,16 @@ const geistMono = Geist_Mono({
 
 const orbitron = Orbitron({
   variable: "--font-orbitron",
+  subsets: ["latin"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
 });
 
@@ -30,7 +40,12 @@ export default async function RootLayout({
 
   return (
     <html lang={initialLang} suppressHydrationWarning>
-      <body className={`${geistMono.variable} ${orbitron.variable} antialiased`} suppressHydrationWarning>
+      <body className={`${geistMono.variable} ${orbitron.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`} suppressHydrationWarning>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{if(localStorage.theme==='light')document.documentElement.dataset.theme='light'}catch(e){}",
+          }}
+        />
         <noscript>
           <style dangerouslySetInnerHTML={{ __html: "[data-reveal]{opacity:1;transform:none}" }} />
         </noscript>

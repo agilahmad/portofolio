@@ -48,7 +48,6 @@ const en = {
   skills: {
     eyebrow: "// CAPABILITIES",
     title: "SKILL",
-    learningLabel: "// Currently Learning",
   },
   experience: {
     eyebrow: "// HISTORY",
@@ -220,7 +219,6 @@ const id: typeof en = {
   skills: {
     eyebrow: "// KEMAMPUAN",
     title: "KEAHLIAN",
-    learningLabel: "// Sedang Dipelajari",
   },
   experience: {
     eyebrow: "// RIWAYAT",

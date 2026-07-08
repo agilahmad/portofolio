@@ -6,6 +6,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isLight, setIsLight] = useState(false);
   const { lang, setLang, t } = useLanguage();
 
   useEffect(() => {
@@ -14,11 +15,31 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setIsLight(document.documentElement.dataset.theme === "light");
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !isLight;
+    setIsLight(next);
+    if (next) document.documentElement.dataset.theme = "light";
+    else delete document.documentElement.dataset.theme;
+    try { localStorage.setItem("theme", next ? "light" : "dark"); } catch {}
+  };
+
+  const toggleBtnStyle: React.CSSProperties = {
+    fontSize: ".6rem", letterSpacing: ".12em", background: "transparent",
+    border: "1px solid var(--border)", color: "var(--text-muted)",
+    padding: ".3rem .65rem", cursor: "pointer", fontFamily: "inherit",
+    transition: "color .2s, border-color .2s",
+  };
+
   return (
     <nav style={{
       position: "fixed", top: 0, width: "100%", zIndex: 100,
       borderBottom: "1px solid var(--border)",
-      background: "rgba(5,5,15,0.94)", backdropFilter: "blur(14px)",
+      background: "rgba(var(--bg-rgb),0.94)", backdropFilter: "blur(14px)",
     }}>
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 1.25rem", display: "flex", alignItems: "center", justifyContent: "space-between", height: 58 }}>
 
@@ -43,15 +64,34 @@ export default function Navbar() {
           {/* language toggle */}
           <button
             onClick={() => setLang(lang === "en" ? "id" : "en")}
-            style={{ fontSize: ".6rem", letterSpacing: ".12em", background: "transparent", border: "1px solid var(--border)", color: "var(--text-muted)", padding: ".3rem .65rem", cursor: "pointer", fontFamily: "inherit", transition: "color .2s, border-color .2s" }}
+            style={toggleBtnStyle}
             onMouseEnter={e => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.borderColor = "var(--purple-light)"; }}
             onMouseLeave={e => { e.currentTarget.style.color = "var(--text-muted)"; e.currentTarget.style.borderColor = "var(--border)"; }}
           >
             {lang === "en" ? "ID" : "EN"}
           </button>
+          {/* theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
+            style={toggleBtnStyle}
+            onMouseEnter={e => { e.currentTarget.style.color = "var(--text)"; e.currentTarget.style.borderColor = "var(--purple-light)"; }}
+            onMouseLeave={e => { e.currentTarget.style.color = "var(--text-muted)"; e.currentTarget.style.borderColor = "var(--border)"; }}
+          >
+            {isLight ? "☾" : "☀"}
+          </button>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: ".75rem" }}>
+          {/* mobile theme toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label={isLight ? "Switch to dark mode" : "Switch to light mode"}
+            className="hamburger"
+            style={{ fontSize: ".6rem", color: "var(--text-muted)", width: "auto", minWidth: "unset", padding: ".3rem .6rem", border: "1px solid var(--border)", background: "transparent", fontFamily: "inherit" }}
+          >
+            {isLight ? "☾" : "☀"}
+          </button>
           {/* mobile lang toggle */}
           <button
             onClick={() => setLang(lang === "en" ? "id" : "en")}

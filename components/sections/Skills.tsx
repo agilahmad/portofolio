@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { SKILL_GROUPS, LEARNING, SKILL_ICONS } from "@/lib/data";
+import { SKILL_GROUPS, SKILL_ICONS, DARK_LOGOS } from "@/lib/data";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Skills() {
@@ -46,11 +46,10 @@ export default function Skills() {
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: ".45rem" }}>
                 {group.skills.map(skill => (
-                  <span key={skill} className="skill-chip">
-                    {SKILL_ICONS[skill] && (
-                      <Image src={SKILL_ICONS[skill]} alt="" width={14} height={14} style={{ objectFit: "contain" }} />
-                    )}
-                    {skill}
+                  <span key={skill} className="skill-chip" title={skill}>
+                    {SKILL_ICONS[skill]
+                      ? <Image src={SKILL_ICONS[skill]} alt={skill} width={26} height={26} className={DARK_LOGOS.has(skill) ? "logo-invert-dark" : undefined} style={{ objectFit: "contain" }} />
+                      : skill}
                   </span>
                 ))}
               </div>
@@ -58,19 +57,6 @@ export default function Skills() {
           ))}
         </div>
 
-        <div style={{ marginTop: "1.5rem", display: "flex", alignItems: "center", gap: "1rem", flexWrap: "wrap" }}>
-          <span style={{ fontSize: ".52rem", letterSpacing: ".2em", color: "var(--purple-light)", textTransform: "uppercase", flexShrink: 0 }}>{s.learningLabel}</span>
-          <div style={{ display: "flex", gap: ".45rem", flexWrap: "wrap" }}>
-            {LEARNING.map(tk => (
-              <span key={tk} className="skill-chip skill-chip-learning">
-                {SKILL_ICONS[tk] && (
-                  <Image src={SKILL_ICONS[tk]} alt="" width={14} height={14} style={{ objectFit: "contain" }} />
-                )}
-                {tk}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );

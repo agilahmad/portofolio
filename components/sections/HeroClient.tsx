@@ -38,7 +38,7 @@ export function HeroStats() {
   return (
     <div className="hero-stats">
       {t.hero.stats.map(s => (
-        <div key={s.label} style={{ border: "1px solid var(--border)", padding: ".65rem .9rem", background: "rgba(13,13,26,.85)" }}>
+        <div key={s.label} style={{ border: "1px solid var(--border)", padding: ".65rem .9rem", background: "rgba(var(--surface-rgb),.85)" }}>
           <div style={{ display: "flex", alignItems: "center", gap: ".4rem", marginBottom: ".45rem" }}>
             <span className={`dot${s.green ? "" : " dot-purple"}`} style={{ width: 5, height: 5 }} />
             <span style={{ fontSize: ".5rem", letterSpacing: ".18em", color: "var(--text-muted)", textTransform: "uppercase" }}>{s.label}</span>
