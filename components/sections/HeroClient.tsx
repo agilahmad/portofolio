@@ -4,6 +4,20 @@ import { useEffect, useState } from "react";
 import { useTypewriter } from "@/lib/hooks";
 import { useLanguage } from "@/context/LanguageContext";
 
+export function HeroUnitLabel() {
+  const { t } = useLanguage();
+  return (
+    <span className="text-[.6rem] tracking-[.28em] text-green uppercase">{t.hero.unitLabel}</span>
+  );
+}
+
+export function HeroHello() {
+  const { t } = useLanguage();
+  return (
+    <div className="mb-3 text-[.65rem] tracking-[.3em] text-muted uppercase">{t.hero.helloLabel}</div>
+  );
+}
+
 export function HeroTypewriter() {
   const [mounted, setMounted] = useState(false);
   const { t } = useLanguage();

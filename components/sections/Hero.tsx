@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { HeroTypewriter, HeroTagline, HeroStats, HeroCTA } from "./HeroClient";
+import { HeroUnitLabel, HeroHello, HeroTypewriter, HeroTagline, HeroStats, HeroCTA } from "./HeroClient";
 
 export default function Hero() {
   return (
@@ -10,24 +10,21 @@ export default function Hero() {
       <div className="sc w-full px-5 pt-16 pb-12">
         <div className="hero-layout">
 
-          {/* text — server rendered for LCP */}
           <div>
             <div className="mb-6 flex flex-wrap items-center gap-3">
-              <span className="text-[.6rem] tracking-[.28em] text-green uppercase">{"// UNIT DESIGNATION"}</span>
+              <HeroUnitLabel />
               <div className="h-px w-10 shrink-0 bg-green" />
               <span className="text-[.6rem] tracking-[.1em] text-muted">JAKARTA, INDONESIA</span>
             </div>
 
-            <div className="mb-3 text-[.65rem] tracking-[.3em] text-muted uppercase">HELLO, MY NAME IS</div>
+            <HeroHello />
 
-            {/* LCP element — server rendered, h1 for accessibility */}
             <h1 aria-label="Agil Ahmad Maulana" className="mb-7 leading-none">
               <span className="glitch block text-[clamp(3rem,10vw,7rem)] font-black tracking-[.04em] text-fg uppercase" data-text="AGIL">AGIL</span>
               <span className="block font-display text-[clamp(2.6rem,9vw,6.2rem)] font-black tracking-[.02em] text-transparent uppercase [-webkit-text-stroke:2px_var(--purple-light)]">AHMAD</span>
               <span className="block text-[clamp(2rem,7vw,5rem)] font-black tracking-[.04em] text-green uppercase [text-shadow:0_0_40px_rgba(57,255,20,.45)]">MAULANA</span>
             </h1>
 
-            {/* typewriter — client only */}
             <div className="mb-3 flex flex-wrap items-center gap-[.4rem]">
               <span className="text-[.8rem] text-purple-light">[ </span>
               <HeroTypewriter />

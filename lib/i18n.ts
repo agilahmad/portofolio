@@ -4,6 +4,7 @@ const en = {
   nav: { resume: "RESUME" },
   hero: {
     unitLabel: "// UNIT DESIGNATION",
+    helloLabel: "HELLO, MY NAME IS",
     roles: ["Backend Developer", "Fullstack Developer"],
     taglineParts: [
       "I build the systems teams rely on — ",
@@ -173,6 +174,7 @@ const id: typeof en = {
   nav: { resume: "RESUME" },
   hero: {
     unitLabel: "// IDENTIFIKASI UNIT",
+    helloLabel: "HALO, NAMA SAYA",
     roles: ["Backend Developer", "Fullstack Developer"],
     taglineParts: [
       "Saya membangun sistem yang diandalkan tim — ",
