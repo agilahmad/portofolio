@@ -1,0 +1,14 @@
+---
+import { translations } from "../lib/i18n.ts";
+
+const t = translations.en.footer;
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border px-5 py-6">
+  <div class="footer-inner">
+    <span class="text-[.7rem] tracking-[.08em] text-muted">Agil Ahmad Maulana</span>
+    <span data-i18n="footer.role" class="text-[.58rem] tracking-[.14em] text-muted uppercase">{t.role}</span>
+    <span class="text-[.7rem] tracking-[.04em] text-muted">© {year} Agil Ahmad Maulana</span>
+  </div>
+</footer>

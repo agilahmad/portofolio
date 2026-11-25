@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import aboutPhoto from "../assets/photos/foto-about.webp";
+import { translations } from "../lib/i18n.ts";
+
+const t = translations.en.about;
+---
+
+<section id="about" class="sp">
+  <div class="sc">
+    <h2 data-i18n="about.title" class="section-title mb-10">{t.title}</h2>
+
+    <div class="about-outer">
+      <div data-reveal class="flex flex-col items-center gap-[.6rem]">
+        <div class="photo-frame h-[370px] w-full max-w-[280px]">
+          <Image src={aboutPhoto} alt="Agil Ahmad Maulana" width={280} height={420} format="webp" quality={85} densities={[1, 2]} loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover object-top" />
+          <div class="photo-color-reveal">
+            <Image src={aboutPhoto} alt="" width={280} height={420} format="webp" quality={85} densities={[1, 2]} class="absolute inset-0 h-full w-full object-cover object-top" aria-hidden="true" />
+          </div>
+          <div class="photo-scan" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div data-reveal class="panel panel-top-bar reveal-delay-1 p-7">
+        <div data-i18n="about.summaryLabel" class="mb-5 text-[.7rem] tracking-[.14em] text-green uppercase">{t.summaryLabel}</div>
+        <p data-i18n="about.bio.0" class="mb-[1.2rem] text-[.85rem] leading-[1.85] text-muted">{t.bio[0]}</p>
+        <p data-i18n="about.bio.1" class="text-[.85rem] leading-[1.85] text-muted">{t.bio[1]}</p>
+      </div>
+
+      <div data-reveal class="reveal-delay-2">
+        {t.info.map((item, index) => (
+          <div class="flex items-start gap-4 border-b border-[rgba(123,47,190,.12)] py-[.65rem]">
+            <span data-i18n={`about.info.${index}.label`} class="min-w-[72px] shrink-0 pt-[.1rem] text-[.52rem] tracking-[.18em] text-green uppercase">{item.label}</span>
+            <span data-i18n={`about.info.${index}.val`} class="text-[.8rem] break-all text-fg">{item.val}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

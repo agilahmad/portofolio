@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">A stepped mark</title>
+  <desc id="desc">Geometric A mark inspired by Evangelion unit colors</desc>
+  <rect width="256" height="256" rx="32" fill="#080812"/>
+  <!-- Purpose: keep single A silhouette clear at favicon sizes. -->
+  <path d="M31 215 94 41h49l82 174h-43l-18-43H91l-17 43H31Zm76-78h43l-22-59-21 59Z" fill="#8d4de8" fill-rule="evenodd"/>
+  <path d="M82 145h74l7 17H75l7-17Z" fill="#b8f500"/>
+</svg>
