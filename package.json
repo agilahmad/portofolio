@@ -1,34 +1,27 @@
 {
   "name": "portofolio",
-  "version": "0.1.0",
-  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.23.4"
+  },
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "npm run build && node --test tests/portfolio-output.test.mjs",
+    "thumbs": "node scripts/make-thumbs.mjs",
+    "astro": "astro"
   },
   "dependencies": {
-    "next": "16.1.6",
-    "postcss": "^8.5.6",
-    "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "astro": "^7.4.2"
   },
-  "browserslist": [
-    "last 2 Chrome versions",
-    "last 2 Firefox versions",
-    "last 2 Safari versions",
-    "last 2 Edge versions",
-    "not dead"
-  ],
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.18",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "@astrojs/check": "^0.9.12",
+    "@tailwindcss/vite": "^4.1.18",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.1.18",
-    "typescript": "^5"
+    "typescript": "^6.0.3"
   }
 }

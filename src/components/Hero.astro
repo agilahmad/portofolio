@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import heroPhoto from "../assets/photos/foto-hero.webp";
+import { translations } from "../lib/i18n.ts";
+
+const t = translations.en.hero;
+---
+
+<section id="top" class="grid-bg relative flex min-h-screen items-center overflow-hidden pt-[58px] pb-12 sm:pb-20">
+  <div class="pointer-events-none absolute top-[8%] right-[4%] h-[min(500px,60vw)] w-[min(500px,60vw)] bg-[radial-gradient(circle,var(--hero-glow-purple)_0%,transparent_70%)]"></div>
+  <div class="pointer-events-none absolute bottom-[15%] left-[3%] h-[min(300px,40vw)] w-[min(300px,40vw)] bg-[radial-gradient(circle,var(--hero-glow-green)_0%,transparent_70%)]"></div>
+
+  <div class="sc w-full px-5 pt-16 pb-16 sm:pb-24">
+    <div class="hero-layout">
+      <div>
+        <div class="mb-6 text-[.6rem] tracking-[.14em] text-muted uppercase">JAKARTA, INDONESIA</div>
+
+        <div data-i18n="hero.helloLabel" class="mb-3 text-[.65rem] tracking-[.3em] text-muted uppercase">{t.helloLabel}</div>
+
+        <h1 aria-label="Agil Ahmad Maulana" class="mb-7 leading-none">
+          <span class="glitch-name block text-[clamp(3rem,10vw,7rem)] font-black tracking-[.04em] text-fg uppercase" data-text="AGIL">AGIL</span>
+          <span class="block font-display text-[clamp(2.6rem,9vw,6.2rem)] font-black tracking-[.02em] text-transparent uppercase [-webkit-text-stroke:2px_var(--purple-light)]">AHMAD</span>
+          <span class="block text-[clamp(2rem,7vw,5rem)] font-black tracking-[.04em] text-green uppercase [text-shadow:0_0_40px_rgba(57,255,20,.45)]">MAULANA</span>
+        </h1>
+
+        <p class="mb-4 text-[clamp(.85rem,2.5vw,1.05rem)] tracking-[.04em] text-purple-light">
+          <span data-i18n="hero.role" data-typewriter="Backend Developer,Fullstack Developer">{t.role}</span>
+          <span class="animate-[blink_1s_infinite] text-green" aria-hidden="true">█</span>
+        </p>
+
+        <p data-i18n="hero.tagline" class="mb-10 max-w-[480px] text-[.9rem] leading-[1.8] text-muted">
+          {t.tagline}
+        </p>
+
+        <div class="mb-12 grid max-w-[560px] grid-cols-1 gap-3 sm:grid-cols-3">
+          {t.stats.map((stat, index) => (
+            <div class="border border-border bg-[rgba(var(--surface-rgb),.85)] px-[.9rem] py-[.65rem]">
+              <div class="mb-[.45rem] flex items-center gap-[.4rem]">
+                <span class={`dot dot-sm${stat.green ? "" : " dot-purple"}`} aria-hidden="true"></span>
+                <span data-i18n={`hero.stats.${index}.label`} class="text-[.5rem] tracking-[.18em] text-muted uppercase">{stat.label}</span>
+              </div>
+              <div data-i18n={`hero.stats.${index}.val`} class={`text-[.85rem] font-bold tracking-[.1em] ${stat.green ? "text-green [text-shadow:0_0_8px_var(--green)]" : "text-fg"}`}>
+                {stat.val}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="flex flex-col gap-4 min-[481px]:flex-row">
+          <a href="#projects" class="btn btn-outline-green w-full text-center min-[481px]:w-auto"><span data-i18n="hero.cta.projects">{t.cta.projects}</span></a>
+          <a href="#contact" class="btn btn-outline-purple w-full text-center min-[481px]:w-auto"><span data-i18n="hero.cta.contact">{t.cta.contact}</span></a>
+        </div>
+      </div>
+
+      <div class="hero-photo-col">
+        <div class="photo-frame h-[420px] w-[300px]">
+          <Image src={heroPhoto} alt="Agil Ahmad Maulana" width={300} height={450} format="webp" quality={85} densities={[1, 2]} fetchpriority="high" loading="eager" decoding="async" class="absolute inset-0 h-full w-full object-cover object-top" />
+          <div class="photo-color-reveal">
+            <Image src={heroPhoto} alt="" width={300} height={450} format="webp" quality={85} densities={[1, 2]} class="absolute inset-0 h-full w-full object-cover object-top" aria-hidden="true" />
+          </div>
+          <div class="photo-scan" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pointer-events-none absolute right-0 bottom-0 left-0 h-[100px] bg-[linear-gradient(transparent,var(--bg))]"></div>
+</section>

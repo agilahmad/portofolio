@@ -1,0 +1,170 @@
+---
+import { PROJECT_META, SKILL_ICONS, DARK_LOGOS, WIDE_LOGOS } from "../lib/data.ts";
+import { translations } from "../lib/i18n.ts";
+
+const t = translations.en.projects;
+---
+
+<section id="projects" class="sp">
+  <div class="sc">
+    <div class="pj-frame">
+      <h2 data-i18n="projects.title" class="section-title mb-7">{t.title}</h2>
+      <div class="pj-grid">
+        {PROJECT_META.map((meta, index) => {
+          const item = t.items[meta.id];
+          const deployed = meta.status === "DEPLOYED";
+          const statusKey = deployed ? "deployed" : meta.status === "IN_DEVELOPMENT" ? "inDevelopment" : "completed";
+          return (
+            <article data-reveal class="pj-card" style={`transition-delay: ${(index % 3) * 0.08}s`}>
+              <div class="pj-head">
+                <span class="pj-code">{meta.id}</span>
+                <span class={`pj-status${deployed ? "" : " pj-status-done"}`}>
+                  <span class="pj-dot" aria-hidden="true"></span>
+                  <span data-i18n={`projects.status.${statusKey}`}>{t.status[statusKey]}</span>
+                </span>
+              </div>
+
+              <div class="pj-thumb-wrap">
+                <div class="pj-thumb-hud">
+                  <span class="pj-thumb-dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </span>
+                  <span class="pj-thumb-host">{meta.url ? meta.url.replace(/^https?:\/\//, "").replace(/\/$/, "") : `${meta.id} // SYS`}</span>
+                  <span class="pj-thumb-badge">{deployed ? "ONLINE" : "ARCHIVED"}</span>
+                </div>
+                {meta.image ? (
+                  <img
+                    src={meta.thumb ?? meta.image}
+                    alt={item.name}
+                    width="480"
+                    height="270"
+                    loading="lazy"
+                    decoding="async"
+                    class="pj-thumb-img"
+                  />
+                ) : (
+                  <div class="pj-thumb-fallback">
+                    <span class="pj-fallback-icon" aria-hidden="true">⚡</span>
+                    <span class="pj-fallback-title">{item.name}</span>
+                    <span class="pj-fallback-sub">TACTICAL BLUEPRINT // {meta.id}</span>
+                    <span class="pj-fallback-corner tl" aria-hidden="true">┌</span>
+                    <span class="pj-fallback-corner br" aria-hidden="true">┘</span>
+                  </div>
+                )}
+              </div>
+
+              <h3 data-i18n={`projects.items.${meta.id}.name`} class="pj-name">{item.name}</h3>
+              <p data-i18n={`projects.items.${meta.id}.context`} class="pj-desc">{item.context}</p>
+              {item.role && <p class="pj-role"><strong data-i18n="projects.dialog.sectionRole">{t.dialog.sectionRole}</strong> · <span data-i18n={`projects.items.${meta.id}.role`}>{item.role}</span></p>}
+
+              <ul class="pj-bullets">
+                {item.contributions.map((contribution, contributionIndex) => (
+                  <li data-i18n={`projects.items.${meta.id}.contributions.${contributionIndex}`}>{contribution}</li>
+                ))}
+              </ul>
+
+              <div class="pj-tags">
+                {meta.tags.map((tag) => {
+                  const icon = SKILL_ICONS[tag];
+                  return (
+                    <span class="pj-tag" title={tag}>
+                      {icon
+                        ? WIDE_LOGOS.has(tag)
+                          ? <img src={icon} alt={tag} class="logo-wide" loading="lazy" decoding="async" />
+                          : <img src={icon} alt={tag} width="16" height="16" loading="lazy" decoding="async" class={`object-contain${DARK_LOGOS.has(tag) ? " logo-invert-dark" : ""}`} />
+                        : tag}
+                    </span>
+                  );
+                })}
+              </div>
+
+              <button class="pj-details-trigger" type="button" data-project-dialog={`project-dialog-${meta.id}`} aria-haspopup="dialog">
+                <span data-i18n="projects.details">VIEW PROJECT DETAILS</span>
+              </button>
+
+              <div class="pj-foot">
+                <span class="pj-links">
+                  {meta.github && (
+                    <a
+                      href={meta.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-i18n-aria="projects.links.codeAria"
+                      data-i18n-aria-name={`projects.items.${meta.id}.name`}
+                      aria-label={t.links.codeAria.replace("{name}", item.name)}
+                    ><span data-i18n="projects.links.code">{t.links.code}</span></a>
+                  )}
+                  {meta.github && meta.url && <span aria-hidden="true">·</span>}
+                  {meta.url && (
+                    <a
+                      href={meta.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-i18n-aria="projects.links.liveAria"
+                      data-i18n-aria-name={`projects.items.${meta.id}.name`}
+                      aria-label={t.links.liveAria.replace("{name}", item.name)}
+                    ><span data-i18n="projects.links.live">{t.links.live}</span></a>
+                  )}
+                </span>
+                <span class="pj-year">{meta.year}</span>
+              </div>
+
+              <dialog id={`project-dialog-${meta.id}`} data-project-panel aria-labelledby={`project-title-${meta.id}`} class="pj-dialog">
+                <div class="pj-dialog-sheet-bar" aria-hidden="true"></div>
+                <header class="pj-dialog-header">
+                  <div><p class="pj-code">{meta.id} // project file</p><h3 id={`project-title-${meta.id}`}>{item.name}</h3></div>
+                  <button type="button" class="pj-dialog-close inline-flex items-center justify-center rounded-lg transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2" data-project-dialog-close aria-label="Close">×</button>
+                </header>
+                <div class="pj-dialog-body">
+                  <dl class="pj-dialog-facts">
+                    <div><dt data-i18n="projects.dialog.role">{t.dialog.role}</dt><dd data-i18n={`projects.items.${meta.id}.role`}>{item.role ?? meta.details?.role ?? "Contributor"}</dd></div>
+                    <div><dt data-i18n="projects.dialog.status">{t.dialog.status}</dt><dd><span class={`pj-status-badge ${deployed ? "pj-status-production" : "pj-status-completed"}`} data-i18n={`projects.status.${statusKey}`}>{t.status[statusKey]}</span></dd></div>
+                    <div><dt data-i18n="projects.dialog.year">{t.dialog.year}</dt><dd>{meta.year}</dd></div>
+                  </dl>
+                  {(meta.image || meta.mobileImage) && <div class="pj-shot-block">
+                    {meta.image && meta.mobileImage && <div class="pj-view-toggle" role="group" aria-label={t.dialog.previewLabel}>
+                      <button type="button" data-project-view="desktop" aria-pressed="true" class="is-active"><span data-i18n="projects.dialog.desktop">{t.dialog.desktop}</span></button>
+                      <button type="button" data-project-view="mobile" aria-pressed="false"><span data-i18n="projects.dialog.mobile">{t.dialog.mobile}</span></button>
+                    </div>}
+                    <div class="pj-shot-frame">
+                      {meta.image && <div data-project-preview="desktop"><a class="pj-shot-zoom" href={meta.image} target="_blank" rel="noopener" title={`${item.name} — buka ukuran penuh`} data-project-shot-link><img src={meta.image} alt={`${item.name}, desktop view`} data-project-shot-default={meta.image} data-project-shot-alt-default={`${item.name}, desktop view`} loading="lazy" /></a></div>}
+                      {meta.mobileImage && <div data-project-preview="mobile" hidden><div class="pj-mobile-shot"><a class="pj-shot-zoom" href={meta.mobileImage} target="_blank" rel="noopener" title={`${item.name} — buka ukuran penuh`} data-project-mobile-shot-link><img src={meta.mobileImage} alt={`${item.name}, mobile view`} data-project-mobile-shot-default={meta.mobileImage} data-project-mobile-shot-alt-default={`${item.name}, mobile view`} loading="lazy" /></a></div></div>}
+                    </div>
+                    {meta.gallery && meta.gallery.length > 1 && (
+                      <div class="pj-gallery" role="group" aria-label={`${item.name} screenshots`}>
+                        {meta.gallery.map((shot, shotIndex) => (
+                          <button
+                            type="button"
+                            class={`pj-gallery-item${shotIndex === 0 ? " is-active" : ""}`}
+                            data-project-shot={shot.src}
+                            data-project-shot-mobile={shot.mobileSrc ?? meta.mobileImage ?? ""}
+                            data-project-shot-alt={`${item.name}, ${shot.label}`}
+                            aria-pressed={shotIndex === 0 ? "true" : "false"}
+                          >
+                            <img src={shot.thumb ?? shot.src} alt="" width="160" height="100" loading="lazy" decoding="async" />
+                            <span>{shot.label}</span>
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>}
+                  <div class="pj-dialog-sections">
+                    <section class="pj-dialog-section"><span class="pj-section-number">01</span><div><h4 data-i18n="projects.dialog.problem">{t.dialog.problem}</h4><p data-i18n={`projects.items.${meta.id}.details.problem`}>{item.details.problem}</p></div></section>
+                    <section class="pj-dialog-section"><span class="pj-section-number">02</span><div><h4 data-i18n="projects.dialog.built">{t.dialog.built}</h4><ul>{item.contributions.map((detail, detailIndex) => <li data-i18n={`projects.items.${meta.id}.contributions.${detailIndex}`}>{detail}</li>)}</ul></div></section>
+                    <section class="pj-dialog-section"><span class="pj-section-number">03</span><div><h4 data-i18n="projects.dialog.decision">{t.dialog.decision}</h4><ul>{item.details.decisions.map((detail, detailIndex) => <li data-i18n={`projects.items.${meta.id}.details.decisions.${detailIndex}`}>{detail}</li>)}</ul></div></section>
+                    <section class="pj-dialog-section"><span class="pj-section-number">04</span><div><h4 data-i18n="projects.dialog.result">{t.dialog.result}</h4><p data-i18n={`projects.items.${meta.id}.details.result`}>{item.details.result}</p></div></section>
+                  </div>
+                  <ul class="pj-dialog-stack">{meta.tags.map((tag) => <li>{tag}</li>)}</ul>
+                </div>
+                {(meta.github || meta.url) && <footer class="pj-dialog-links flex flex-wrap items-center gap-2">
+                  {meta.github && <a href={meta.github} target="_blank" rel="noopener noreferrer" data-i18n-aria="projects.links.codeAria" data-i18n-aria-name={`projects.items.${meta.id}.name`} aria-label={t.links.codeAria.replace("{name}", item.name)}><img src="/logos/github.png" alt="" width="18" height="18" aria-hidden="true" /> <span data-i18n="projects.dialog.viewCode">{t.dialog.viewCode}</span></a>}
+                  {meta.url && <a href={meta.url} target="_blank" rel="noopener noreferrer" data-i18n-aria="projects.links.liveAria" data-i18n-aria-name={`projects.items.${meta.id}.name`} aria-label={t.links.liveAria.replace("{name}", item.name)}><span data-i18n="projects.dialog.viewLive">{t.dialog.viewLive}</span></a>}
+                </footer>}
+              </dialog>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+import { SKILL_GROUPS, SKILL_ICONS, DARK_LOGOS, WIDE_LOGOS } from "../lib/data.ts";
+import { translations } from "../lib/i18n.ts";
+
+const t = translations.en.skills;
+---
+
+<section id="skills" class="sp">
+  <div class="sc">
+    <h2 data-i18n="skills.title" class="section-title mb-10">{t.title}</h2>
+
+    <div class="grid-skill-groups">
+      {SKILL_GROUPS.map((group, groupIndex) => (
+        <div data-reveal class="panel px-[1.4rem] py-5" style={`transition-delay: ${groupIndex * 0.08}s`}>
+          <div class="mb-[.9rem] flex items-center gap-2 text-[.65rem] tracking-[.14em] text-green uppercase">
+            <span class="dot dot-xs" aria-hidden="true"></span>
+            <span data-i18n={`skills.categories.${group.category}`}>{t.categories[group.category]}</span>
+          </div>
+          <div class="flex flex-wrap gap-[.45rem]">
+            {group.skills.map((skill) => {
+              const icon = SKILL_ICONS[skill];
+              return (
+                <span class="skill-chip" title={skill}>
+                  {icon
+                    ? WIDE_LOGOS.has(skill)
+                      ? <img src={icon} alt={skill} class="logo-wide" loading="lazy" decoding="async" />
+                      : <img src={icon} alt={skill} width="26" height="26" loading="lazy" decoding="async" class={`object-contain${DARK_LOGOS.has(skill) ? " logo-invert-dark" : ""}`} />
+                    : skill}
+                </span>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

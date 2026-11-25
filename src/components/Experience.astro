@@ -1,0 +1,98 @@
+---
+import { translations } from "../lib/i18n.ts";
+
+const t = translations.en.experience;
+---
+
+<section id="experience" class="sp">
+  <div class="sc">
+    <h2 data-i18n="experience.title" class="section-title mb-10">{t.title}</h2>
+
+    <div class="grid-exp">
+      <div class="relative pl-7">
+        <div class="timeline-line"></div>
+        <div data-reveal class="relative mb-8">
+          <div class="timeline-dot"></div>
+          <div class="panel panel-top-green ml-[.6rem] mb-8 p-[1.4rem]">
+            <div class="mb-2 flex flex-wrap justify-between gap-[.3rem]"><span data-i18n="experience.livales.period" class="text-[.58rem] tracking-[.16em] text-green uppercase">{t.livales.period}</span><span data-i18n="experience.livales.badge" class="tag tag-sm">{t.livales.badge}</span></div>
+            <h3 data-i18n="experience.livales.role" class="mb-[.2rem] text-[.88rem] tracking-[.05em] uppercase">{t.livales.role}</h3>
+            <div data-i18n="experience.livales.org" class="mb-[.9rem] text-[.7rem] text-purple-light">{t.livales.org}</div>
+            <ul class="flex list-none flex-col gap-[.45rem]">{t.livales.items.map((item, index) => <li class="flex gap-[.6rem] text-[.77rem] leading-[1.6] text-muted"><span class="shrink-0 text-green" aria-hidden="true">›</span><span data-i18n={`experience.livales.items.${index}`}>{item}</span></li>)}</ul>
+          </div>
+        </div>
+
+        <div data-reveal class="relative mb-8">
+          <div class="timeline-dot"></div>
+          <div class="panel panel-top-green ml-[.6rem] p-[1.4rem]">
+            <div class="mb-2 flex flex-wrap justify-between gap-[.3rem]">
+              <span data-i18n="experience.internship.period" class="text-[.58rem] tracking-[.16em] text-green uppercase">{t.internship.period}</span>
+              <span data-i18n="experience.internship.badge" class="tag tag-sm">{t.internship.badge}</span>
+            </div>
+            <h3 data-i18n="experience.internship.role" class="mb-[.2rem] text-[.88rem] tracking-[.05em] uppercase">{t.internship.role}</h3>
+            <div data-i18n="experience.internship.org" class="mb-[.9rem] text-[.7rem] text-purple-light">{t.internship.org}</div>
+            <ul class="flex list-none flex-col gap-[.45rem]">
+              {t.internship.items.map((item, index) => (
+                <li class="flex gap-[.6rem] text-[.77rem] leading-[1.6] text-muted">
+                  <span class="shrink-0 text-green" aria-hidden="true">›</span>
+                  <span data-i18n={`experience.internship.items.${index}`}>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div data-reveal class="reveal-delay-1 relative">
+          <div class="timeline-dot timeline-dot-purple"></div>
+          <div class="panel ml-[.6rem] p-[1.4rem]">
+            <div class="mb-2 flex flex-wrap justify-between gap-[.3rem]">
+              <span data-i18n="experience.training.period" class="text-[.58rem] tracking-[.16em] text-purple-light uppercase">{t.training.period}</span>
+              <span data-i18n="experience.training.badge" class="tag tag-sm">{t.training.badge}</span>
+            </div>
+            <h3 data-i18n="experience.training.role" class="mb-[.2rem] text-[.88rem] tracking-[.05em] uppercase">{t.training.role}</h3>
+            <div data-i18n="experience.training.org" class="mb-[.9rem] text-[.7rem] text-purple-light">{t.training.org}</div>
+            <ul class="flex list-none flex-col gap-[.45rem]">
+              {t.training.items.map((item, index) => (
+                <li class="flex gap-[.6rem] text-[.77rem] leading-[1.6] text-muted">
+                  <span class="shrink-0 text-purple-light" aria-hidden="true">›</span>
+                  <span data-i18n={`experience.training.items.${index}`}>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <div data-reveal class="panel panel-top-purple p-[1.4rem]">
+          <div data-i18n="experience.educationLabel" class="mb-[.9rem] text-[.56rem] tracking-[.2em] text-green">{t.educationLabel}</div>
+          <div class="mb-[.4rem] flex flex-wrap justify-between gap-[.3rem]">
+            <span data-i18n="experience.education.period" class="text-[.58rem] tracking-[.12em] text-muted uppercase">{t.education.period}</span>
+            <span data-i18n="experience.education.gpa" class="text-[.65rem] text-green">{t.education.gpa}</span>
+          </div>
+          <h3 data-i18n="experience.education.degree" class="mb-[.2rem] text-[.86rem] tracking-[.05em] uppercase">{t.education.degree}</h3>
+          <div data-i18n="experience.education.university" class="mb-[.85rem] text-[.7rem] text-purple-light">{t.education.university}</div>
+          <div data-i18n="experience.education.thesis" class="border border-[rgba(123,47,190,.15)] bg-[rgba(123,47,190,.06)] p-[.7rem] text-[.7rem] leading-[1.6] text-muted">{t.education.thesis}</div>
+        </div>
+
+        <div data-reveal class="panel panel-top-green reveal-delay-1 p-[1.4rem]">
+          <div data-i18n="experience.certificationLabel" class="mb-[.9rem] text-[.56rem] tracking-[.2em] text-green">{t.certificationLabel}</div>
+          <div class="flex flex-col gap-[.6rem]">
+            {t.certifications.map((cert, i) => (
+              <div class="flex items-center gap-[.9rem] border border-border p-[.7rem]">
+                <div class="flex h-9 w-9 shrink-0 items-center justify-center border border-purple bg-[rgba(123,47,190,.2)] text-[.95rem] text-purple-light" aria-hidden="true">◈</div>
+                <div>
+                  <div data-i18n={`experience.certifications.${i}.name`} class="mb-[.2rem] text-[.78rem] tracking-[.04em] uppercase">{cert.name}</div>
+                  <div class="flex flex-wrap gap-3">
+                    <span data-i18n={`experience.certifications.${i}.issuer`} class="text-[.6rem] text-purple-light">{cert.issuer}</span>
+                    <span data-i18n={`experience.certifications.${i}.date`} class="text-[.6rem] text-muted">{cert.date}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
